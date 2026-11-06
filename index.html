@@ -155,7 +155,7 @@ const canRisk=(p,x)=>canEditP(p)||x.own===meId||(DEPT(meId)==="kalite"&&canAct(p
 const hasAct=()=>S.p.some(p=>canAct(p));
 const canAct=p=>!!p&&(isOwner||!p.mem||(p.mem.includes(meId)&&!VIEWER.includes(roleOf(p,meId))));
 const canSee=p=>isOwner||!p.mem||p.mem.includes(meId)||isMgrOf(p,meId);
-function recompute(){KC={};if(MODE==="demo"&&!PVD&&!PV&&Object.keys(COMP.p).length&&(RAW.p||[]).length){PVD=1;const pm=(RAW.p||[]).flatMap(p=>Object.entries(p.roles||{}).filter(([i,r])=>r==="Proje Yöneticisi").map(([i])=>i)),d=Object.keys(COMP.p).sort().find(i=>COMP.p[i].l==="el"&&pm.includes(i));if(d){setTimeout(()=>A.pv(d),0)}}const srt=(a,b)=>(b.at||0)-(a.at||0);S.pAll=(RAW.p||[]).map(fix).sort((a,b)=>(a.name||"").localeCompare(b.name||"","tr"));S.p=S.pAll.filter(canSee);const ok=new Set(S.p.map(x=>x.id));
+function recompute(){KC={};if(MODE==="demo"&&!PVD&&!PV&&(!window.SA||isOwner)&&Object.keys(COMP.p).length&&(RAW.p||[]).length){PVD=1;const pm=(RAW.p||[]).flatMap(p=>Object.entries(p.roles||{}).filter(([i,r])=>r==="Proje Yöneticisi").map(([i])=>i)),d=Object.keys(COMP.p).sort().find(i=>COMP.p[i].l==="el"&&pm.includes(i));if(d){setTimeout(()=>A.pv(d),0)}}const srt=(a,b)=>(b.at||0)-(a.at||0);S.pAll=(RAW.p||[]).map(fix).sort((a,b)=>(a.name||"").localeCompare(b.name||"","tr"));S.p=S.pAll.filter(canSee);const ok=new Set(S.p.map(x=>x.id));
  const TM=lvl(meId)==="dir"?scope(meId):null;
  for(const k of["q","t","m","r"])S[k]=(RAW[k]||[]).map(fix).sort(srt).filter(x=>ok.has(x.p)||((k==="q"||k==="t")&&(x.cc||[]).includes(meId))||(k==="t"&&!x.p&&(x.by===meId||x.to===meId))||(k==="t"&&TM&&(TM.has(x.to)||TM.has(x.by))));S.rp=(RAW.rp||[]).map(fix).filter(x=>ok.has(x.id));S.rq=(RAW.rq||[]).map(fix).sort(srt).filter(x=>ok.has(x.p));S.q=[];
  S.mt=(RAW.mt||[]).map(fix).sort((a,b)=>(b.date||"").localeCompare(a.date||"")||(b.at||0)-(a.at||0)).filter(x=>ok.has(x.p)||x.by===meId||(x.pa||[]).includes(meId)||(x.cc||[]).includes(meId)||(TM&&(x.pa||[]).some(i=>TM.has(i))));render();ensure()}
@@ -207,7 +207,7 @@ function lkReg(){lkShowPad(false);$("lkM").className="msg";$("lkM").textContent=
  <label>Ünvanın</label><input id="rg_t" placeholder="Örn: Sistem Mühendisi">
  <label>Pozisyonun</label><select id="rg_p">${P.map(x=>`<option>${x}</option>`).join("")}</select>
  <div class="two"><div><label>4 haneli şifre</label><input id="rg_s" type="password" inputmode="numeric" maxlength="4" placeholder="••••"></div><div><label>Şifre tekrar</label><input id="rg_s2" type="password" inputmode="numeric" maxlength="4" placeholder="••••"></div></div>
- <div class="er" id="rg_e"></div><button class="go" onclick="A.lkCreate()">Hesabımı oluştur</button>${window.SA?`<button class="lnk" onclick="lkLoginForm()">Zaten hesabım var</button>`:""}<button class="lnk" onclick="A.lkDemo()">Önce demoyu gör</button>`}
+ <div class="er" id="rg_e"></div><button class="go" onclick="A.lkCreate()">Hesabımı oluştur</button>${window.SA?`<button class="lnk" onclick="lkLoginForm()">Zaten hesabım var</button>`:""}${window.SA?"":`<button class="lnk" onclick="A.lkDemo()">Önce demoyu gör</button>`}`}
 const hashWith=async(id,p)=>{const o=LK.uid;LK.uid=id;const h=await lkHash(p);LK.uid=o;return h};
 function lkLoginForm(){$("lkM").textContent="Hesabına giriş yap";$("lkR").innerHTML=`<label>Adın soyadın</label><input id="lg_n" placeholder="Hesabı açarken yazdığın ad"><label>4 haneli şifren</label><input id="lg_s" type="password" inputmode="numeric" maxlength="4" placeholder="••••"><div class="er" id="lg_e"></div><button class="go" onclick="A.lkLogin()">Giriş yap</button><button class="lnk" onclick="lkReg()">Yeni hesap oluştur</button>`}
 A.lkLogin=async()=>{const n=$("lg_n").value.trim().toLocaleLowerCase("tr"),p=$("lg_s").value,er=m=>$("lg_e").textContent=m;if(!n||!/^\d{4}$/.test(p))return er("Adını ve 4 haneli şifreni yaz");
@@ -230,6 +230,7 @@ A.lk=async k=>{if(k==="del"){LK.buf=LK.buf.slice(0,-1);lkDraw();return}if(LK.buf
  if(LK.mode==="set2"){if(p!==LK.first){LK.mode="set";LK.buf="";lkDraw();$("lkM").textContent="Şifreler uyuşmadı, baştan belirle";lkShake();return}
   LK.h=await lkHash(p);try{localStorage.setItem("lk_"+LK.uid,LK.h)}catch(_){}try{await lkDoc().set({h:LK.h,at:Date.now()})}catch(_){}lkOpen();toast("Şifren kaydedildi ✓");return}
  if(LK.acc&&!LK.demoOnly&&p!=="1111"){if(await lkHash(p)===LK.acc.h){LK.bad=0;lkOpen("me")}else{LK.bad++;LK.buf="";lkDraw();lkShake()}return}
+ if(p==="1111"&&window.SA&&!(PV?PV.own:isOwner)){LK.buf="";LK.bad++;lkDraw();lkShake();return}
  if(p==="2222"&&(GUEST||!(PV?PV.own:isOwner))){LK.buf="";lkDraw();$("lkM").textContent="Kişisel alan için Claude hesabınla giriş yapmalısın";lkShake();return}
  if(p==="1111"||p==="2222"){LK.bad=0;lkOpen(p==="2222"?"me":"demo")}else{LK.bad++;LK.buf="";lkDraw();lkShake()}};
 function lkShake(){const d=$("lkD");d.classList.remove("bad");void d.offsetWidth;d.classList.add("bad");try{navigator.vibrate&&navigator.vibrate(120)}catch(_){}}
