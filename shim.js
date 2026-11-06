@@ -20,6 +20,7 @@
     batchSet:async(items,onProg)=>{for(let i=0;i<items.length;i+=400){const b=fs.batch();items.slice(i,i+400).forEach(([p,d])=>b.set(fs.doc(p),clean(d)));await b.commit();onProg&&onProg(Math.min(i+400,items.length),items.length)}}
   };
   /* kimlik: bu cihazdaki hesap */
+  try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(_){}
   let aid="";try{aid=localStorage.getItem("at_acc")||""}catch(_){}
   if(!aid){aid="a"+Date.now().toString(36)+Math.random().toString(36).slice(2,8);try{localStorage.setItem("at_acc",aid)}catch(_){}}
   let ACCS={};fs.collection("accounts").onSnapshot(q=>{ACCS={};q.docs.forEach(d=>ACCS[d.id]=d.data())},()=>{});

@@ -84,7 +84,7 @@ textarea.pre{width:100%;height:46vh;font:13px/1.45 ui-monospace,Menlo,monospace;
 #lk .kp{display:grid;grid-template-columns:repeat(3,72px);gap:14px 24px;justify-content:center}
 #lk .kp button{width:72px;height:72px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.1);color:#fff;font-size:28px;font-weight:500;font-family:inherit;-webkit-tap-highlight-color:transparent;transition:background .1s}
 #lk .kp button:active{background:rgba(255,255,255,.32)}#lk .kp button.t{background:none;border:0;font-size:14px;font-weight:600;opacity:.85}#lk .kp span{display:block}
-#lk .ft{position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);font-size:11px;opacity:.45;letter-spacing:.3px}
+#lk{overflow-y:auto;-webkit-overflow-scrolling:touch;justify-content:flex-start}#lk .lkc{margin:auto 0;flex-shrink:0}#lk.fm .lkc{padding-bottom:28px}#lk.fm .ft{display:none}#lk.fm .msg{margin-top:16px}#lk .ft{pointer-events:none;position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);font-size:11px;opacity:.45;letter-spacing:.3px}
 @media (max-height:640px){#lk .ico{width:56px;height:56px}#lk .wm{font-size:26px}#lk .hi{display:none}#lk .msg{margin-top:16px}#lk .dots{margin:10px 0 18px}#lk .kp{grid-template-columns:repeat(3,64px);gap:10px 22px}#lk .kp button{width:64px;height:64px;font-size:24px}}
 
 /* sade liste */
@@ -200,30 +200,39 @@ async function lkInit(uid){LK.uid=uid;try{const i=document.querySelector('link[r
  if((window.SA||!isOwner)&&!GUEST){try{const d=await RDB.doc("accounts/"+uid).get();if(d&&d.exists)LK.acc=d.data()}catch(_){}}
  if(LK.acc&&LK.acc.name)$("lkS").textContent="👋 Merhaba, "+LK.acc.name.split(" ")[0];
  if((window.SA||!isOwner)&&!LK.acc){lkReg();return}
+ if(window.SA&&LK.acc&&!LK.acc.email&&!LK.skipM){lkMailForm();return}
  let un=0;try{un=sessionStorage.getItem("at_unl");sessionStorage.removeItem("at_unl")}catch(_){}if(un&&LK.acc){lkShowPad(true);lkOpen("me");return}
  LK.mode="enter";LK.buf="";lkShowPad(true);lkDraw()}
-function lkShowPad(on){$("lkD").style.display=on?"":"none";$("lkK").style.display=on?"":"none";const r=$("lkR");if(r)r.style.display=on?"none":""}
-function lkReg(){lkShowPad(false);$("lkM").className="msg";$("lkM").textContent=GUEST?"Hesap oluşturmak için giriş yapmalısın":"İlk girişin · Hesabını oluştur";let r=$("lkR");if(!r){r=document.createElement("div");r.id="lkR";r.className="rg";$("lkD").after(r)}
+function lkShowPad(on){$("lk").classList.toggle("fm",!on);$("lkD").style.display=on?"":"none";$("lkK").style.display=on?"":"none";const r=$("lkR");if(r)r.style.display=on?"none":""}
+function lkReg(){lkShowPad(false);$("lkM").className="msg";$("lkM").textContent=GUEST?"Hesap oluşturmak için giriş yapmalısın":(window.SA?"Hesabını oluştur · Daha önce açtıysan en alttan giriş yap":"İlk girişin · Hesabını oluştur");let r=$("lkR");if(!r){r=document.createElement("div");r.id="lkR";r.className="rg";$("lkD").after(r)}
  const P=["Personel","Ekip Lideri","Müdür","Direktör","Genel Müdür Yardımcısı","Genel Müdür"];
  r.innerHTML=GUEST?`<div style="text-align:center;font-size:14px;opacity:.85;line-height:1.5">Bu bağlantıyı Claude hesabınla giriş yaparak aç. Sayfa sahibi sana “Düzenleyebilir” yetkisi vermiş olmalı.</div><button class="lnk" onclick="A.lkDemo()">Şimdilik demoyu gör</button>`:
  `<label>Adın soyadın</label><input id="rg_n" autocomplete="name" placeholder="Örn: Ayşe Demir" value="${e(myName||"")}">
+ <label>E-posta adresin</label><input id="rg_m" type="email" autocomplete="email" inputmode="email" autocapitalize="off" placeholder="ornek@mail.com">
  <label>Ünvanın</label><input id="rg_t" placeholder="Örn: Sistem Mühendisi">
  <label>Pozisyonun</label><select id="rg_p">${P.map(x=>`<option>${x}</option>`).join("")}</select>
  <div class="two"><div><label>4 haneli şifre</label><input id="rg_s" type="password" inputmode="numeric" maxlength="4" placeholder="••••"></div><div><label>Şifre tekrar</label><input id="rg_s2" type="password" inputmode="numeric" maxlength="4" placeholder="••••"></div></div>
- <div class="er" id="rg_e"></div><button class="go" onclick="A.lkCreate()">Hesabımı oluştur</button>${window.SA?`<button class="lnk" onclick="lkLoginForm()">Zaten hesabım var</button>`:""}${window.SA?"":`<button class="lnk" onclick="A.lkDemo()">Önce demoyu gör</button>`}`}
+ <div class="er" id="rg_e"></div><button class="go" onclick="A.lkCreate()">Hesabımı oluştur</button>${window.SA?`<button class="lnk" style="font-weight:700;opacity:1" onclick="lkLoginForm()">Zaten hesabım var · Giriş yap</button>`:""}${window.SA?"":`<button class="lnk" onclick="A.lkDemo()">Önce demoyu gör</button>`}`}
+function lkMailForm(){lkShowPad(false);$("lkM").className="msg";$("lkM").textContent="Hesabına e-posta ekle";let r=$("lkR");if(!r){r=document.createElement("div");r.id="lkR";r.className="rg";$("lkD").after(r)}r.style.display="";
+ r.innerHTML=`<div style="font-size:14px;opacity:.85;line-height:1.5;text-align:center">Başka bir cihazdan ya da uygulama silinirse e-posta ve şifrenle hesabına geri dönebilirsin.</div><label>E-posta adresin</label><input id="em_m" type="email" autocomplete="email" inputmode="email" autocapitalize="off" placeholder="ornek@mail.com"><div class="er" id="em_e"></div><button class="go" onclick="A.lkMail()">Kaydet</button><button class="lnk" onclick="LK.skipM=1;lkInit(LK.uid)">Şimdi değil</button>`}
+A.lkMail=async()=>{const m=$("em_m").value.trim().toLocaleLowerCase("tr"),er=x=>$("em_e").textContent=x;if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m))return er("Geçerli bir e-posta adresi yaz");
+ try{const q=await RDB.collection("accounts").get();if(q.docs.some(d=>d.id!==LK.uid&&(d.data().email||"")===m))return er("Bu e-posta başka bir hesapta kayıtlı");await RDB.doc("accounts/"+LK.uid).update({email:m})}catch(_){return er("Kaydedilemedi, tekrar dene")}
+ LK.acc.email=m;toast("E-posta kaydedildi ✓");lkInit(LK.uid)};
 const hashWith=async(id,p)=>{const o=LK.uid;LK.uid=id;const h=await lkHash(p);LK.uid=o;return h};
-function lkLoginForm(){$("lkM").textContent="Hesabına giriş yap";$("lkR").innerHTML=`<label>Adın soyadın</label><input id="lg_n" placeholder="Hesabı açarken yazdığın ad"><label>4 haneli şifren</label><input id="lg_s" type="password" inputmode="numeric" maxlength="4" placeholder="••••"><div class="er" id="lg_e"></div><button class="go" onclick="A.lkLogin()">Giriş yap</button><button class="lnk" onclick="lkReg()">Yeni hesap oluştur</button>`}
-A.lkLogin=async()=>{const n=$("lg_n").value.trim().toLocaleLowerCase("tr"),p=$("lg_s").value,er=m=>$("lg_e").textContent=m;if(!n||!/^\d{4}$/.test(p))return er("Adını ve 4 haneli şifreni yaz");
+function lkLoginForm(pre){lkShowPad(false);$("lkM").className="msg";$("lkM").textContent="Hesabına giriş yap";$("lkR").innerHTML=`<label>E-posta adresin</label><input id="lg_n" type="email" autocomplete="email" inputmode="email" autocapitalize="off" placeholder="ornek@mail.com" value="${e(pre||"")}"><div style="font-size:12px;opacity:.7;margin-top:4px">E-postasız eski hesaplarda adını soyadını yazabilirsin.</div><label>4 haneli şifren</label><input id="lg_s" type="password" inputmode="numeric" maxlength="4" placeholder="••••"><div class="er" id="lg_e"></div><button class="go" onclick="A.lkLogin()">Giriş yap</button><button class="lnk" onclick="lkReg()">Yeni hesap oluştur</button>`}
+A.lkLogin=async()=>{const n=$("lg_n").value.trim().toLocaleLowerCase("tr"),p=$("lg_s").value,er=m=>$("lg_e").textContent=m;if(!n||!/^\d{4}$/.test(p))return er("E-postanı ve 4 haneli şifreni yaz");
  let L={};try{const q=await RDB.collection("accounts").get();q.docs.forEach(d=>L[d.id]=d.data())}catch(_){return er("Bağlantı hatası, tekrar dene")}
- for(const[id,a]of Object.entries(L)){if((a.name||"").toLocaleLowerCase("tr")===n&&await hashWith(id,p)===a.h){window.SA_setAccount(id);try{sessionStorage.setItem("at_unl","1")}catch(_){}location.reload();return}}
- er("Ad veya şifre hatalı")};
+ for(const[id,a]of Object.entries(L)){if(((a.email||"")===n||(a.name||"").toLocaleLowerCase("tr")===n)&&await hashWith(id,p)===a.h){window.SA_setAccount(id);try{sessionStorage.setItem("at_unl","1")}catch(_){}location.reload();return}}
+ er("E-posta veya şifre hatalı")};
 async function seedDemo(prog){const r=await fetch("seed-demo.json",{cache:"no-store"});const items=await r.json();await window.SA_db.batchSet(items,prog)}
 A.seed=async()=>{toast("Yükleniyor…");try{await seedDemo((a,b)=>toast("Demo verileri yükleniyor… "+Math.round(a/b*100)+"%"));toast("Demo verileri yüklendi ✓")}catch(_){toast("Yüklenemedi")}};
 A.lkDemo=()=>{lkShowPad(true);LK.mode="enter";LK.buf="";LK.demoOnly=true;lkDraw();$("lkM").textContent="Demo şifresi: 1111"};
-A.lkCreate=async()=>{const n=$("rg_n").value.trim(),t=$("rg_t").value.trim(),p=$("rg_p").value,a=$("rg_s").value,b=$("rg_s2").value,er=m=>$("rg_e").textContent=m;
- if(n.split(/\s+/).length<2)return er("Adını ve soyadını yaz");if(!t)return er("Ünvanını yaz");if(!/^\d{4}$/.test(a))return er("Şifre 4 rakam olmalı");if(a!==b)return er("Şifreler aynı değil");if(a==="1111")return er("1111 demo için ayrılmış, başka bir şifre seç");
- const acc={name:n,title:t,pos:p,h:await lkHash(a),at:Date.now()};
- if(window.SA){try{const q=await RDB.collection("accounts").get();if(!q.docs.some(d=>d.data().owner))acc.owner=true}catch(_){}}
+A.lkCreate=async()=>{const n=$("rg_n").value.trim(),m=($("rg_m").value||"").trim().toLocaleLowerCase("tr"),t=$("rg_t").value.trim(),p=$("rg_p").value,a=$("rg_s").value,b=$("rg_s2").value,er=m=>$("rg_e").textContent=m;
+ if(n.split(/\s+/).length<2)return er("Adını ve soyadını yaz");if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m))return er("Geçerli bir e-posta adresi yaz");if(!t)return er("Ünvanını yaz");if(!/^\d{4}$/.test(a))return er("Şifre 4 rakam olmalı");if(a!==b)return er("Şifreler aynı değil");if(a==="1111")return er("1111 demo için ayrılmış, başka bir şifre seç");
+ const acc={name:n,email:m,title:t,pos:p,h:await lkHash(a),at:Date.now()};
+ if(window.SA){let q;try{q=await RDB.collection("accounts").get()}catch(_){return er("Bağlantı hatası, tekrar dene")}
+  const ex=q.docs.find(d=>(d.data().email||"")===m);if(ex){if(await hashWith(ex.id,a)===ex.data().h){window.SA_setAccount(ex.id);try{sessionStorage.setItem("at_unl","1")}catch(_){}location.reload();return}lkLoginForm(m);$("lg_e").textContent="Bu e-postayla zaten bir hesap var. Şifrenle giriş yap.";return}
+  if(!q.docs.some(d=>d.data().owner))acc.owner=true}
  try{await RDB.doc("accounts/"+LK.uid).set(acc)}catch(_){return er(window.SA?"Hesap kaydedilemedi, internet bağlantını kontrol edip tekrar dene.":"Hesap kaydedilemedi. Sayfa sahibinin sana “Düzenleyebilir” yetkisi vermesi gerekiyor.")}
  if(window.SA){if(acc.owner){er("");$("lkM").textContent="Demo verileri yükleniyor…";try{await seedDemo((a,b)=>$("lkM").textContent="Demo verileri yükleniyor… "+Math.round(a/b*100)+"%")}catch(_){}}try{sessionStorage.setItem("at_unl","1")}catch(_){}location.reload();return}
  LK.acc=acc;$("lkS").textContent="👋 Merhaba, "+n.split(" ")[0];lkOpen("me");toast("Hesabın oluşturuldu ✓")};
