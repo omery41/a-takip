@@ -182,6 +182,9 @@ const stl=x=>{const isTo=x.to===meId,isBy=x.by===meId;let t;
  else t=isTo?"👉 Cevap sırası sende":isBy?`⏳ ${nw(x.to)} cevaplayacak, bekleniyor`:`⏳ Cevap bekleniyor: ${nw(x.to)}`;
  return`<div class="stl" style="${x.st==="wait"&&isTo?"background:var(--ac);color:var(--ac2)":""}">${e(t)}</div>`};
 async function ensure(){const ids=[...S.q,...S.t,...S.r,...S.mt,...replies].flatMap(x=>[x.by,x.to,x.own,...(x.cc||[]),...(x.pa||[])]).filter(i=>i&&!prof[i]&&!PE[i]);const need=[...new Set(ids)];if(!need.length)return;try{Object.assign(prof,await user.profiles(need));render()}catch(_){}}
+window.addEventListener("error",ev=>{try{const m=$("lkM");if(m&&/Yükleniyor/.test(m.textContent))m.textContent="Hata: "+(ev.message||"bilinmeyen")}catch(_){}});
+window.addEventListener("unhandledrejection",ev=>{try{const m=$("lkM");if(m&&/Yükleniyor/.test(m.textContent))m.textContent="Hata: "+((ev.reason&&ev.reason.message)||ev.reason||"bilinmeyen")}catch(_){}});
+setTimeout(()=>{try{const m=$("lkM");if(m&&m.textContent==="Yükleniyor…")m.innerHTML="Bağlantı kurulamadı.<br><span style='font-size:13px;opacity:.8'>İnterneti kontrol edip sayfayı yenile.</span>"}catch(_){}},20000);
 /* ---------- giriş ekranı (4 haneli şifre) ---------- */
 let LK={uid:"",h:"",mode:"",buf:"",first:"",bad:0,hidAt:0};
 const lkHash=async p=>{try{const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(LK.uid+":"+p));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}catch(_){let h=0;for(const ch of LK.uid+p)h=(h*31+ch.charCodeAt(0))|0;return"x"+h}};
