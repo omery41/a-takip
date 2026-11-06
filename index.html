@@ -99,7 +99,7 @@ html,body,*{touch-action:manipulation}input,select,textarea{font-size:max(16px,1
 .seg .n{display:inline-block;min-width:20px;padding:0 6px;margin-left:4px;border-radius:99px;background:var(--ln);color:var(--tx);font-size:12px;line-height:18px}.seg.on .n{background:var(--ac);color:var(--ac2)}
 .tabs2{display:flex;gap:18px;margin:2px 2px 12px;border-bottom:1px solid var(--ln)}.tabs2 button{border:0;background:none;padding:8px 0;font-weight:600;color:var(--mu);border-bottom:2px solid transparent;margin-bottom:-1px}.tabs2 button.on{color:var(--ac);border-bottom-color:var(--ac)}
 .sub2{color:var(--mu);font-size:13px;margin:-2px 2px 10px}
-</style></head><body><div id="lk"><div class="lkc"><img class="ico" id="lkI" alt=""><div class="wm"><b>a</b>-takip</div><div class="tg">Proje ve görev takibi</div><div class="hi" id="lkS">Hoş geldin</div><div class="msg" id="lkM">Yükleniyor…</div><div class="dots" id="lkD"><i></i><i></i><i></i><i></i></div><div class="kp" id="lkK"></div></div><div class="ft">Kuzey Savunma Sistemleri A.Ş.</div></div>
+</style></head><body><div id="lk"><div class="lkc"><img class="ico" id="lkI" alt=""><div class="wm"><b>a</b>-takip</div><div class="tg">Proje ve görev takibi</div><div class="hi" id="lkS">Hoş geldin</div><div class="msg" id="lkM">Yükleniyor…</div><div class="dots" id="lkD"><i></i><i></i><i></i><i></i></div><div class="kp" id="lkK"></div></div></div>
 <header><div class="hrow"><h1 id="ttl">Ana sayfa</h1><button class="ib" aria-label="Ara" onclick="A.search()">🔍</button></div><div class="sub" id="sub"></div></header>
 <main id="main"><div class="empty">Yükleniyor…</div></main>
 <button class="fab" id="fab" style="display:none"></button>
@@ -107,8 +107,8 @@ html,body,*{touch-action:manipulation}input,select,textarea{font-size:max(16px,1
 <link rel="manifest" href="manifest.json">
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script src="config.js"></script>
-<script src="shim.js"></script>
+<script src="config.js?v=b198ff3ca2"></script>
+<script src="shim.js?v=b198ff3ca2"></script>
 <script>
 const $=id=>document.getElementById(id);
 const e=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -194,6 +194,10 @@ const lkDoc=()=>db.doc("data/users/"+LK.uid+"/lock");
 function lkDraw(){$("lkD").innerHTML=[0,1,2,3].map(i=>`<i class="${i<LK.buf.length?"on":""}"></i>`).join("");
  $("lkM").className="msg"+(LK.bad&&LK.mode==="enter"?" err":"");$("lkM").textContent=LK.mode==="set"?"4 haneli bir şifre belirle":LK.mode==="set2"?"Şifreyi tekrar gir":LK.bad?"Şifre yanlış, tekrar dene":LK.demoOnly?"Demo şifresi: 1111":"Şifreni gir";
  $("lkK").innerHTML=[1,2,3,4,5,6,7,8,9].map(n=>`<button onclick="A.lk('${n}')">${n}</button>`).join("")+(!(PV?PV.own:isOwner)&&!GUEST&&!LK.acc?`<button class="t" onclick="lkReg()">Hesap aç</button>`:"<span></span>")+`<button onclick="A.lk('0')">0</button><button class="t" style="font-size:24px" onclick="A.lk('del')" aria-label="Sil">⌫</button>`}
+const BUILD="b198ff3ca2";
+async function chkUpd(){if(!window.SA||BUILD.startsWith("__"))return;try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
+ if(v&&v!==BUILD){const u=new URL(location.href);if(u.searchParams.get("v")===v)return;u.searchParams.set("v",v);location.replace(u.toString())}}catch(_){}}
+setTimeout(chkUpd,1500);document.addEventListener("visibilitychange",()=>{if(!document.hidden)chkUpd()});
 async function lkInit(uid){LK.uid=uid;try{const i=document.querySelector('link[rel="apple-touch-icon"]');if(i)$("lkI").src=i.href}catch(_){}
  if(myName)$("lkS").textContent="👋 Merhaba, "+myName.split(" ")[0];
  try{LK.h=localStorage.getItem("lk_"+uid)||""}catch(_){}
@@ -227,6 +231,9 @@ A.lkLogin=async()=>{const n=$("lg_n").value.trim().toLocaleLowerCase("tr"),p=$("
  let L={};try{const q=await RDB.collection("accounts").get();q.docs.forEach(d=>L[d.id]=d.data())}catch(_){return er("Bağlantı hatası, tekrar dene")}
  for(const[id,a]of Object.entries(L)){if(((a.email||"")===n||(a.name||"").toLocaleLowerCase("tr")===n)&&await hashWith(id,p)===a.h){window.SA_setAccount(id);try{sessionStorage.setItem("at_unl","1")}catch(_){}location.reload();return}}
  er("E-posta veya şifre hatalı")};
+A.delAcc=async()=>{if(armed!=="delacc"){armed="delacc";render();return}armed="";
+ try{if(isOwner){await RDB.doc("meta/owner").set({pending:true,at:Date.now()});try{localStorage.setItem("at_own_reset","1")}catch(_){}}await RDB.doc("accounts/"+meId).delete()}catch(_){toast("Silinemedi, tekrar dene");return}
+ try{localStorage.removeItem("at_acc");sessionStorage.removeItem("at_unl")}catch(_){}toast("Hesabın silindi");setTimeout(()=>location.reload(),600)};
 async function seedDemo(prog){const r=await fetch("seed-demo.json",{cache:"no-store"});const items=await r.json();await window.SA_db.batchSet(items,prog)}
 A.seed=async()=>{toast("Yükleniyor…");try{await seedDemo((a,b)=>toast("Demo verileri yükleniyor… "+Math.round(a/b*100)+"%"));toast("Demo verileri yüklendi ✓")}catch(_){toast("Yüklenemedi")}};
 A.lkDemo=()=>{lkShowPad(true);LK.mode="enter";LK.buf="";LK.demoOnly=true;lkDraw();$("lkM").textContent="Demo şifresi: 1111"};
@@ -235,9 +242,10 @@ A.lkCreate=async()=>{const n=$("rg_n").value.trim(),m=($("rg_m").value||"").trim
  const acc={name:n,email:m,title:t,pos:p,h:await lkHash(a),at:Date.now()};
  if(window.SA){let q;try{q=await RDB.collection("accounts").get()}catch(_){return er("Bağlantı hatası, tekrar dene")}
   const ex=q.docs.find(d=>(d.data().email||"")===m);if(ex){if(await hashWith(ex.id,a)===ex.data().h){window.SA_setAccount(ex.id);try{sessionStorage.setItem("at_unl","1")}catch(_){}location.reload();return}lkLoginForm(m);$("lg_e").textContent="Bu e-postayla zaten bir hesap var. Şifrenle giriş yap.";return}
-  if(!q.docs.some(d=>d.data().owner))acc.owner=true}
+  let pend=false;try{const o=await RDB.doc("meta/owner").get();pend=!!(o.exists&&o.data().pending)}catch(_){}let rs=null;try{rs=localStorage.getItem("at_own_reset")}catch(_){}
+  if(!q.docs.some(d=>d.data().owner)&&(!pend||rs)){acc.owner=true;if(pend){try{await RDB.doc("meta/owner").delete()}catch(_){}}try{localStorage.removeItem("at_own_reset")}catch(_){}}}
  try{await RDB.doc("accounts/"+LK.uid).set(acc)}catch(_){return er(window.SA?"Hesap kaydedilemedi, internet bağlantını kontrol edip tekrar dene.":"Hesap kaydedilemedi. Sayfa sahibinin sana “Düzenleyebilir” yetkisi vermesi gerekiyor.")}
- if(window.SA){if(acc.owner){er("");$("lkM").textContent="Demo verileri yükleniyor…";try{await seedDemo((a,b)=>$("lkM").textContent="Demo verileri yükleniyor… "+Math.round(a/b*100)+"%")}catch(_){}}try{sessionStorage.setItem("at_unl","1")}catch(_){}location.reload();return}
+ if(window.SA){let hasD=false;if(acc.owner){try{hasD=(await RDB.doc("meta/company").get()).exists}catch(_){}}if(acc.owner&&!hasD){er("");$("lkM").textContent="Demo verileri yükleniyor…";try{await seedDemo((a,b)=>$("lkM").textContent="Demo verileri yükleniyor… "+Math.round(a/b*100)+"%")}catch(_){}}try{sessionStorage.setItem("at_unl","1")}catch(_){}location.reload();return}
  LK.acc=acc;$("lkS").textContent="👋 Merhaba, "+n.split(" ")[0];lkOpen("me");toast("Hesabın oluşturuldu ✓")};
 A.lk=async k=>{if(k==="del"){LK.buf=LK.buf.slice(0,-1);lkDraw();return}if(LK.buf.length>=4)return;LK.buf+=k;lkDraw();if(LK.buf.length<4)return;
  const p=LK.buf;await new Promise(r=>setTimeout(r,120));
@@ -293,7 +301,7 @@ function render(){
  $("sub").textContent=MODE==="me"?"Kişisel alan":"Demo · "+(COMP.name||"örnek şirket");
  const fab=$("fab"),sub=openQ||openT||openP||tab==="home";fab.style.display="none";fab.textContent=tab==="t"?"＋ Görev ver":tab==="p"?"＋ Proje":"＋ Soru sor";
  const topBtns="";
- $("main").innerHTML=(PV?pvBanner():"")+(openM?mdetail():openG&&!openT?gscreen():openQ?detail():openT?tdetail():openP?pdetail():openU?unitScreen():tab==="c"?company():tab==="home"?home(m)+`<div style="text-align:center;margin:22px 0 6px"><button class="btn g sm" onclick="lkLock()">🔒 Kilitle · mod değiştir</button></div>`:tab==="p"?topBtns+(canNewP()?`<div style="margin:0 0 10px"><button class="btn g sm" onclick="A.form('p')">＋ Yeni proje</button></div>`:"")+gcard()+projects():tab==="ag"?agenda():tab==="mt"?topBtns+mlist():topBtns+list());
+ $("main").innerHTML=(PV?pvBanner():"")+(openM?mdetail():openG&&!openT?gscreen():openQ?detail():openT?tdetail():openP?pdetail():openU?unitScreen():tab==="c"?company():tab==="home"?home(m)+`<div style="text-align:center;margin:22px 0 6px"><button class="btn g sm" onclick="lkLock()">🔒 Kilitle · mod değiştir</button>${window.SA&&MODE==="me"&&!PV?`<div style="margin-top:14px"><button class="btn g sm dg" onclick="A.delAcc()">${armed==="delacc"?"Emin misin? Hesabın kalıcı olarak silinir":"Hesabımı sil"}</button></div>`:""}</div>`:tab==="p"?topBtns+(canNewP()?`<div style="margin:0 0 10px"><button class="btn g sm" onclick="A.form('p')">＋ Yeni proje</button></div>`:"")+gcard()+projects():tab==="ag"?agenda():tab==="mt"?topBtns+mlist():topBtns+list());
  for(const id in keep){const el=$(id);if(el&&!el.value)el.value=keep[id]}}
 A.go=k=>{tab=k;openG=false;af="me";filt="";lf="all";mf="all";openM=null;openQ=null;openT=null;openP=null;openU=null;USt=[];if(unsubR){unsubR();unsubR=null}render();scrollTo(0,0)};
 A.back=()=>{if(openT&&openM){openT=null;render();return}openQ=null;openT=null;openM=null;if(unsubR){unsubR();unsubR=null}PA=[];render()};

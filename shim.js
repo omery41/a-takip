@@ -28,7 +28,7 @@
   const USER={
     id:async()=>aid,
     isOwner:async()=>{try{const q=await TO(fs.collection("accounts").get(),10000);const L=q.docs.map(d=>({id:d.id,...d.data()}));if(!L.length)return false;
-      const o=L.find(x=>x.owner)||L.sort((x,y)=>(x.at||0)-(y.at||0))[0];return o.id===aid}catch(_){const a=await accGet();return !!(a&&a.owner)}},
+      let o=L.find(x=>x.owner);if(!o){try{const m=await TO(fs.doc("meta/owner").get(),8000);if(m.exists&&m.data().pending)return false}catch(_){}o=L.sort((x,y)=>(x.at||0)-(y.at||0))[0]}return o.id===aid}catch(_){const a=await accGet();return !!(a&&a.owner)}},
     name:async()=>{const a=await accGet();return a?a.name:""},
     profiles:async ids=>{const o={};(ids||[]).forEach(i=>{if(ACCS[i])o[i]={name:ACCS[i].name}});return o},
     search:async q=>{q=(q||"").toLocaleLowerCase("tr");return Object.entries(ACCS).filter(([i,a])=>i!==aid&&(a.name||"").toLocaleLowerCase("tr").includes(q)).slice(0,8).map(([i,a])=>({id:i,name:a.name}))}
