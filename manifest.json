@@ -1,0 +1,1 @@
+{"name": "a-takip", "short_name": "a-takip", "start_url": "./", "display": "standalone", "background_color": "#0a1630", "theme_color": "#13284d", "icons": [{"src": "icon-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"}]}
