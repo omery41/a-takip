@@ -214,7 +214,7 @@ const TITLES=[["Proje Yönetimi", ["Program Yöneticisi", "Proje Yöneticisi", "
 function lkReg(){lkShowPad(false);$("lkM").className="msg";$("lkM").textContent=GUEST?"Hesap oluşturmak için giriş yapmalısın":(window.SA?"Hesabını oluştur · Daha önce açtıysan en alttan giriş yap":"İlk girişin · Hesabını oluştur");let r=$("lkR");if(!r){r=document.createElement("div");r.id="lkR";r.className="rg";$("lkD").after(r)}
  const P=["Personel","Ekip Lideri","Müdür","Direktör","Genel Müdür Yardımcısı","Genel Müdür"];
  r.innerHTML=GUEST?`<div style="text-align:center;font-size:14px;opacity:.85;line-height:1.5">Bu bağlantıyı Claude hesabınla giriş yaparak aç. Sayfa sahibi sana “Düzenleyebilir” yetkisi vermiş olmalı.</div><button class="lnk" onclick="A.lkDemo()">Şimdilik demoyu gör</button>`:
- `<label>Adın soyadın</label><input id="rg_n" autocomplete="name" placeholder="Örn: Ayşe Demir" value="${e(myName||"")}">
+ `<label>Adın soyadın</label><input id="rg_n" autocomplete="name" placeholder="Örn: Ömer Yaşar ATAMAN" value="${e(myName||"")}">
  <label>E-posta adresin</label><input id="rg_m" type="email" autocomplete="email" inputmode="email" autocapitalize="off" placeholder="ornek@mail.com">
  <label>Ünvanın</label><select id="rg_t"><option value="">Seç…</option>${TITLES.map(([g,L])=>`<optgroup label="${g}">${L.map(x=>`<option>${x}</option>`).join("")}</optgroup>`).join("")}</select>
  <label>Pozisyonun</label><select id="rg_p">${P.map(x=>`<option>${x}</option>`).join("")}</select>
