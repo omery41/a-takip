@@ -107,8 +107,8 @@ html,body,*{touch-action:manipulation}input,select,textarea{font-size:max(16px,1
 <link rel="manifest" href="manifest.json">
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script src="config.js?v=b198ff3ca2"></script>
-<script src="shim.js?v=b198ff3ca2"></script>
+<script src="config.js?v=47aee8e5bf"></script>
+<script src="shim.js?v=47aee8e5bf"></script>
 <script>
 const $=id=>document.getElementById(id);
 const e=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -194,7 +194,7 @@ const lkDoc=()=>db.doc("data/users/"+LK.uid+"/lock");
 function lkDraw(){$("lkD").innerHTML=[0,1,2,3].map(i=>`<i class="${i<LK.buf.length?"on":""}"></i>`).join("");
  $("lkM").className="msg"+(LK.bad&&LK.mode==="enter"?" err":"");$("lkM").textContent=LK.mode==="set"?"4 haneli bir şifre belirle":LK.mode==="set2"?"Şifreyi tekrar gir":LK.bad?"Şifre yanlış, tekrar dene":LK.demoOnly?"Demo şifresi: 1111":"Şifreni gir";
  $("lkK").innerHTML=[1,2,3,4,5,6,7,8,9].map(n=>`<button onclick="A.lk('${n}')">${n}</button>`).join("")+(!(PV?PV.own:isOwner)&&!GUEST&&!LK.acc?`<button class="t" onclick="lkReg()">Hesap aç</button>`:"<span></span>")+`<button onclick="A.lk('0')">0</button><button class="t" style="font-size:24px" onclick="A.lk('del')" aria-label="Sil">⌫</button>`}
-const BUILD="b198ff3ca2";
+const BUILD="47aee8e5bf";
 async function chkUpd(){if(!window.SA||BUILD.startsWith("__"))return;try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==BUILD){const u=new URL(location.href);if(u.searchParams.get("v")===v)return;u.searchParams.set("v",v);location.replace(u.toString())}}catch(_){}}
 setTimeout(chkUpd,1500);document.addEventListener("visibilitychange",()=>{if(!document.hidden)chkUpd()});
@@ -243,7 +243,8 @@ A.lkCreate=async()=>{const n=$("rg_n").value.trim(),m=($("rg_m").value||"").trim
  if(window.SA){let q;try{q=await RDB.collection("accounts").get()}catch(_){return er("Bağlantı hatası, tekrar dene")}
   const ex=q.docs.find(d=>(d.data().email||"")===m);if(ex){if(await hashWith(ex.id,a)===ex.data().h){window.SA_setAccount(ex.id);try{sessionStorage.setItem("at_unl","1")}catch(_){}location.reload();return}lkLoginForm(m);$("lg_e").textContent="Bu e-postayla zaten bir hesap var. Şifrenle giriş yap.";return}
   let pend=false;try{const o=await RDB.doc("meta/owner").get();pend=!!(o.exists&&o.data().pending)}catch(_){}let rs=null;try{rs=localStorage.getItem("at_own_reset")}catch(_){}
-  if(!q.docs.some(d=>d.data().owner)&&(!pend||rs)){acc.owner=true;if(pend){try{await RDB.doc("meta/owner").delete()}catch(_){}}try{localStorage.removeItem("at_own_reset")}catch(_){}}}
+  if(window.OWNER_H){try{const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(m));if([...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")===window.OWNER_H)acc.owner=true}catch(_){}}
+  if(acc.owner){}else if(!q.docs.some(d=>d.data().owner)&&(!pend||rs)){acc.owner=true;if(pend){try{await RDB.doc("meta/owner").delete()}catch(_){}}try{localStorage.removeItem("at_own_reset")}catch(_){}}}
  try{await RDB.doc("accounts/"+LK.uid).set(acc)}catch(_){return er(window.SA?"Hesap kaydedilemedi, internet bağlantını kontrol edip tekrar dene.":"Hesap kaydedilemedi. Sayfa sahibinin sana “Düzenleyebilir” yetkisi vermesi gerekiyor.")}
  if(window.SA){let hasD=false;if(acc.owner){try{hasD=(await RDB.doc("meta/company").get()).exists}catch(_){}}if(acc.owner&&!hasD){er("");$("lkM").textContent="Demo verileri yükleniyor…";try{await seedDemo((a,b)=>$("lkM").textContent="Demo verileri yükleniyor… "+Math.round(a/b*100)+"%")}catch(_){}}try{sessionStorage.setItem("at_unl","1")}catch(_){}location.reload();return}
  LK.acc=acc;$("lkS").textContent="👋 Merhaba, "+n.split(" ")[0];lkOpen("me");toast("Hesabın oluşturuldu ✓")};

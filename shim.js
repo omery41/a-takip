@@ -21,6 +21,7 @@
   };
   /* kimlik: bu cihazdaki hesap */
   try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(_){}
+  const sha=async t=>{const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(String(t).trim().toLowerCase()));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")};
   let aid="";try{aid=localStorage.getItem("at_acc")||""}catch(_){}
   if(!aid){aid="a"+Date.now().toString(36)+Math.random().toString(36).slice(2,8);try{localStorage.setItem("at_acc",aid)}catch(_){}}
   let ACCS={};fs.collection("accounts").onSnapshot(q=>{ACCS={};q.docs.forEach(d=>ACCS[d.id]=d.data())},()=>{});
@@ -28,6 +29,7 @@
   const USER={
     id:async()=>aid,
     isOwner:async()=>{try{const q=await TO(fs.collection("accounts").get(),10000);const L=q.docs.map(d=>({id:d.id,...d.data()}));if(!L.length)return false;
+      if(window.OWNER_H){const H=await Promise.all(L.map(x=>x.email?sha(x.email):""));const k=L.findIndex((x,i)=>H[i]===window.OWNER_H);if(k>=0)return L[k].id===aid}
       let o=L.find(x=>x.owner);if(!o){try{const m=await TO(fs.doc("meta/owner").get(),8000);if(m.exists&&m.data().pending)return false}catch(_){}o=L.sort((x,y)=>(x.at||0)-(y.at||0))[0]}return o.id===aid}catch(_){const a=await accGet();return !!(a&&a.owner)}},
     name:async()=>{const a=await accGet();return a?a.name:""},
     profiles:async ids=>{const o={};(ids||[]).forEach(i=>{if(ACCS[i])o[i]={name:ACCS[i].name}});return o},
