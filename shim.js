@@ -4,6 +4,7 @@
   window.SA=true;
   const app=firebase.initializeApp(window.FB_CONFIG),fs=firebase.firestore();
   try{fs.settings({experimentalForceLongPolling:true,merge:true})}catch(_){}
+  try{fs.enablePersistence({synchronizeTabs:true}).catch(()=>{})}catch(_){}
   const TO=(p,ms=12000)=>Promise.race([p,new Promise((_,rj)=>setTimeout(()=>rj(new Error("Sunucuya bağlanılamadı (zaman aşımı)")),ms))]);
   const clean=o=>JSON.parse(JSON.stringify(o===undefined?null:o));
   const dsnap=s=>({exists:s.exists,id:s.id,data:()=>s.data()});
@@ -39,5 +40,10 @@
   window.SA_setAccount=id=>{try{localStorage.setItem("at_acc",id)}catch(_){}};
   window.SA_accounts=()=>ACCS;
   window.SA_db=DB;
-  window.claude={use:async k=>k==="db"?DB:k==="user"?USER:k==="downloads"?DL:null};
+  /* fotoğraf: ücretsiz planda küçültülüp kaydın içine gömülür */
+  const toJpeg=async(blob,max,q)=>{const b=await createImageBitmap(blob),k=Math.min(1,max/Math.max(b.width,b.height)),c=document.createElement("canvas");c.width=Math.round(b.width*k);c.height=Math.round(b.height*k);c.getContext("2d").drawImage(b,0,0,c.width,c.height);return c.toDataURL("image/jpeg",q)};
+  const ASSETS={upload:async blob=>{if(!/^image\//.test(blob.type||""))throw new Error("Bu sürümde yalnızca fotoğraf eklenebilir");
+    let d=await toJpeg(blob,1280,.72);if(d.length>330000)d=await toJpeg(blob,960,.6);if(d.length>330000)d=await toJpeg(blob,720,.5);
+    return{id:"i"+Date.now().toString(36)+Math.random().toString(36).slice(2,6),contentType:"image/jpeg",d}}};
+  window.claude={use:async k=>k==="db"?DB:k==="user"?USER:k==="downloads"?DL:k==="assets"?ASSETS:null};
 })();

@@ -63,7 +63,7 @@ textarea.pre{width:100%;height:46vh;font:13px/1.45 ui-monospace,Menlo,monospace;
 .who3{display:flex;align-items:stretch;gap:8px;margin:12px 0 4px}.who3 .p{flex:1;background:var(--bg);border-radius:12px;padding:10px;min-width:0}.who3 .p b{display:block;font-size:15px;overflow-wrap:anywhere}.who3 .p.me{outline:2px solid var(--ac)}.who3 .p .av{margin-bottom:4px}.who3 .ar{align-self:center;font-size:20px;color:var(--mu)}
 .stl{margin:8px 0 2px;padding:9px 12px;border-radius:10px;font-size:14px;font-weight:600;background:var(--bg)}
 .sp{display:flex;justify-content:space-between;align-items:center;gap:8px}
-html,body,*{touch-action:manipulation}input,select,textarea{font-size:max(16px,1em)}#lk{position:fixed;inset:0;z-index:50;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 24px) 24px calc(env(safe-area-inset-bottom,0px) + 44px);text-align:center;user-select:none;-webkit-user-select:none;
+html,body,*{touch-action:manipulation}.calg{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center}.calg .cw{font-size:11px;color:var(--mu,#64748b);padding:4px 0}.calg .cd{border:0;background:none;border-radius:10px;padding:6px 0 4px;font:inherit;font-size:14px;color:inherit;cursor:pointer;min-height:42px}.calg .cd.td{background:var(--ac2);font-weight:700}.calg .cd.sel{background:var(--ac);color:#fff}.calg .cd i{display:flex;gap:2px;justify-content:center;height:6px;margin-top:3px}.calg .cd i b,.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#2563eb}.calg .cd i b.r{background:#dc2626}.calg .cd i b.m,.dot.m{background:#d97706}.calg .cd i b.t,.dot.t{background:#059669}input,select,textarea{font-size:max(16px,1em)}#lk{position:fixed;inset:0;z-index:50;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 24px) 24px calc(env(safe-area-inset-bottom,0px) + 44px);text-align:center;user-select:none;-webkit-user-select:none;
  background:radial-gradient(120% 60% at 50% 0%,#2b5aa3 0%,rgba(43,90,163,0) 60%),linear-gradient(180deg,#173467 0%,#0a1630 100%)}
 #lk.off{display:none}
 #lk .rg{width:100%;max-width:340px;text-align:left;margin-top:18px}#lk .rg label{display:block;font-size:13px;opacity:.8;margin:12px 2px 6px}
@@ -84,7 +84,7 @@ html,body,*{touch-action:manipulation}input,select,textarea{font-size:max(16px,1
 #lk .kp{display:grid;grid-template-columns:repeat(3,72px);gap:14px 24px;justify-content:center}
 #lk .kp button{width:72px;height:72px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.1);color:#fff;font-size:28px;font-weight:500;font-family:inherit;-webkit-tap-highlight-color:transparent;transition:background .1s}
 #lk .kp button:active{background:rgba(255,255,255,.32)}#lk .kp button.t{background:none;border:0;font-size:14px;font-weight:600;opacity:.85}#lk .kp span{display:block}
-#lk{overflow-y:auto;-webkit-overflow-scrolling:touch;justify-content:flex-start}#lk .lkc{margin:auto 0;flex-shrink:0}#lk.fm .lkc{padding-bottom:28px}#lk.fm .ft{display:none}#lk.fm .msg{margin-top:16px}#lk .ft{pointer-events:none;position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);font-size:11px;opacity:.45;letter-spacing:.3px}
+#lk{overflow-y:auto;-webkit-overflow-scrolling:touch;justify-content:flex-start}#lk .lkc{margin:auto 0;flex-shrink:0}#lk.fm .lkc{padding-bottom:28px}#lk.fm .ft{display:none}#lk.fm .msg{margin-top:16px}#lk .lkx{text-align:center;margin-top:10px;min-height:24px}#lk.fm .lkx{display:none}#lk .ft{pointer-events:none;position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);font-size:11px;opacity:.45;letter-spacing:.3px}
 @media (max-height:640px){#lk .ico{width:56px;height:56px}#lk .wm{font-size:26px}#lk .hi{display:none}#lk .msg{margin-top:16px}#lk .dots{margin:10px 0 18px}#lk .kp{grid-template-columns:repeat(3,64px);gap:10px 22px}#lk .kp button{width:64px;height:64px;font-size:24px}}
 
 /* sade liste */
@@ -99,16 +99,16 @@ html,body,*{touch-action:manipulation}input,select,textarea{font-size:max(16px,1
 .seg .n{display:inline-block;min-width:20px;padding:0 6px;margin-left:4px;border-radius:99px;background:var(--ln);color:var(--tx);font-size:12px;line-height:18px}.seg.on .n{background:var(--ac);color:var(--ac2)}
 .tabs2{display:flex;gap:18px;margin:2px 2px 12px;border-bottom:1px solid var(--ln)}.tabs2 button{border:0;background:none;padding:8px 0;font-weight:600;color:var(--mu);border-bottom:2px solid transparent;margin-bottom:-1px}.tabs2 button.on{color:var(--ac);border-bottom-color:var(--ac)}
 .sub2{color:var(--mu);font-size:13px;margin:-2px 2px 10px}
-</style></head><body><div id="lk"><div class="lkc"><img class="ico" id="lkI" alt=""><div class="wm"><b>a</b>-takip</div><div class="tg">Proje ve görev takibi</div><div class="hi" id="lkS">Hoş geldin</div><div class="msg" id="lkM">Yükleniyor…</div><div class="dots" id="lkD"><i></i><i></i><i></i><i></i></div><div class="kp" id="lkK"></div></div></div>
-<header><div class="hrow"><h1 id="ttl">Ana sayfa</h1><button class="ib" aria-label="Ara" onclick="A.search()">🔍</button></div><div class="sub" id="sub"></div></header>
+</style></head><body><div id="lk"><div class="lkc"><img class="ico" id="lkI" alt=""><div class="wm"><b>a</b>-takip</div><div class="tg">Proje ve görev takibi</div><div class="hi" id="lkS">Hoş geldin</div><div class="msg" id="lkM">Yükleniyor…</div><div class="dots" id="lkD"><i></i><i></i><i></i><i></i></div><div class="kp" id="lkK"></div><div id="lkX" class="lkx"></div></div></div>
+<header><div class="hrow"><h1 id="ttl">Ana sayfa</h1><button class="ib" id="ntb" aria-label="Bildirimler" onclick="A.ntOpen()" style="display:none;position:relative;margin:0 8px 0 auto">🔔<span class="bd" style="position:absolute;top:-4px;right:-4px;left:auto;display:none"></span></button><button class="ib" aria-label="Ara" onclick="A.search()">🔍</button></div><div class="sub" id="sub"></div></header>
 <main id="main"><div class="empty">Yükleniyor…</div></main>
 <button class="fab" id="fab" style="display:none"></button>
 <nav id="nav"></nav><div id="m"><div class="sheet" id="sheet"></div></div><div id="toast"></div>
 <link rel="manifest" href="manifest.json">
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script src="config.js?v=47aee8e5bf"></script>
-<script src="shim.js?v=47aee8e5bf"></script>
+<script src="config.js?v=cf772a5199"></script>
+<script src="shim.js?v=cf772a5199"></script>
 <script>
 const $=id=>document.getElementById(id);
 const e=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -194,10 +194,10 @@ const lkDoc=()=>db.doc("data/users/"+LK.uid+"/lock");
 function lkDraw(){$("lkD").innerHTML=[0,1,2,3].map(i=>`<i class="${i<LK.buf.length?"on":""}"></i>`).join("");
  $("lkM").className="msg"+(LK.bad&&LK.mode==="enter"?" err":"");$("lkM").textContent=LK.mode==="set"?"4 haneli bir şifre belirle":LK.mode==="set2"?"Şifreyi tekrar gir":LK.bad?"Şifre yanlış, tekrar dene":LK.demoOnly?"Demo şifresi: 1111":"Şifreni gir";
  $("lkK").innerHTML=[1,2,3,4,5,6,7,8,9].map(n=>`<button onclick="A.lk('${n}')">${n}</button>`).join("")+(!(PV?PV.own:isOwner)&&!GUEST&&!LK.acc?`<button class="t" onclick="lkReg()">Hesap aç</button>`:"<span></span>")+`<button onclick="A.lk('0')">0</button><button class="t" style="font-size:24px" onclick="A.lk('del')" aria-label="Sil">⌫</button>`}
-const BUILD="47aee8e5bf";
+const BUILD="cf772a5199";
 async function chkUpd(){if(!window.SA||BUILD.startsWith("__"))return;try{const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.text()).trim();
  if(v&&v!==BUILD){const u=new URL(location.href);if(u.searchParams.get("v")===v)return;u.searchParams.set("v",v);location.replace(u.toString())}}catch(_){}}
-setTimeout(chkUpd,1500);document.addEventListener("visibilitychange",()=>{if(!document.hidden)chkUpd()});
+setTimeout(chkUpd,1500);if(window.SA&&"serviceWorker"in navigator&&location.protocol!=="file:"){try{navigator.serviceWorker.register("sw.js").catch(()=>{})}catch(_){}}document.addEventListener("visibilitychange",()=>{if(!document.hidden)chkUpd()});
 async function lkInit(uid){LK.uid=uid;try{const i=document.querySelector('link[rel="apple-touch-icon"]');if(i)$("lkI").src=i.href}catch(_){}
  if(myName)$("lkS").textContent="👋 Merhaba, "+myName.split(" ")[0];
  try{LK.h=localStorage.getItem("lk_"+uid)||""}catch(_){}
@@ -209,7 +209,8 @@ async function lkInit(uid){LK.uid=uid;try{const i=document.querySelector('link[r
  if(window.SA&&LK.acc&&!LK.acc.email&&!LK.skipM){lkMailForm();return}
  let un=0;try{un=sessionStorage.getItem("at_unl");sessionStorage.removeItem("at_unl")}catch(_){}if(un&&LK.acc){lkShowPad(true);lkOpen("me");return}
  LK.mode="enter";LK.buf="";lkShowPad(true);lkDraw()}
-function lkShowPad(on){$("lk").classList.toggle("fm",!on);$("lkD").style.display=on?"":"none";$("lkK").style.display=on?"":"none";const r=$("lkR");if(r)r.style.display=on?"none":""}
+A.lkHelp=()=>{$("lkM").className="msg";$("lkM").innerHTML="Şifreni uygulama yöneticisinden sıfırlamasını iste.<br>Yeni şifreyle buradan girebilirsin.";$("lkX").innerHTML=`<button class="lnk" onclick="lkLoginForm()">Başka hesapla giriş yap</button>`};
+function lkShowPad(on){$("lk").classList.toggle("fm",!on);{const x=$("lkX");if(x)x.innerHTML=on&&window.SA&&LK.acc?`<button class="lnk" onclick="A.lkHelp()">Şifremi unuttum</button>`:""}$("lkD").style.display=on?"":"none";$("lkK").style.display=on?"":"none";const r=$("lkR");if(r)r.style.display=on?"none":""}
 const TITLES=[["Proje Yönetimi", ["Program Yöneticisi", "Proje Yöneticisi", "Kıdemli Proje Mühendisi", "Proje Mühendisi", "Proje Planlama Uzmanı", "Proje Kontrol Uzmanı", "Risk Yönetimi Uzmanı", "Sözleşme Yönetimi Uzmanı", "Proje Asistanı"]], ["Sistem Mühendisliği", ["Sistem Mimarı", "Kıdemli Sistem Mühendisi", "Sistem Mühendisi", "Gereksinim Mühendisi", "Entegrasyon Mühendisi", "Doğrulama ve Geçerleme Mühendisi"]], ["Tasarım", ["Yazılım Mühendisi", "Gömülü Yazılım Mühendisi", "Donanım Mühendisi", "Elektronik Tasarım Mühendisi", "RF Tasarım Mühendisi", "Mekanik Tasarım Mühendisi", "Optik Tasarım Mühendisi", "Yapısal / Termal Analiz Mühendisi", "Teknik Ressam"]], ["Test", ["Test Mühendisi", "Saha Test Mühendisi", "Test Teknisyeni"]], ["Kalite", ["Kalite Mühendisi", "Kalite Güvence Uzmanı", "Güvenilirlik Mühendisi", "Konfigürasyon Yönetimi Uzmanı", "Kalite Kontrol Teknisyeni"]], ["Üretim", ["Üretim Mühendisi", "Endüstri Mühendisi", "Proses Mühendisi", "Üretim Planlama Uzmanı", "Montaj Teknisyeni", "Kablaj Teknisyeni", "Bakım Teknisyeni", "Üretim Operatörü"]], ["Tedarik ve Lojistik", ["Satın Alma Uzmanı", "Tedarik Zinciri Uzmanı", "Tedarikçi Kalite Mühendisi", "Entegre Lojistik Destek Uzmanı", "Teknik Dokümantasyon Uzmanı", "Depo Sorumlusu"]], ["Destek Birimleri", ["Finans Uzmanı", "Maliyet Uzmanı", "İnsan Kaynakları Uzmanı", "Bilgi Teknolojileri Uzmanı", "Bilgi Güvenliği Uzmanı", "İş Sağlığı ve Güvenliği Uzmanı", "İhracat Kontrol Uzmanı", "Endüstriyel Katılım Uzmanı", "Hukuk Müşaviri", "İdari İşler Uzmanı", "Asistan"]], ["Diğer", ["Danışman", "Stajyer", "Diğer"]]];
 function lkReg(){lkShowPad(false);$("lkM").className="msg";$("lkM").textContent=GUEST?"Hesap oluşturmak için giriş yapmalısın":(window.SA?"Hesabını oluştur · Daha önce açtıysan en alttan giriş yap":"İlk girişin · Hesabını oluştur");let r=$("lkR");if(!r){r=document.createElement("div");r.id="lkR";r.className="rg";$("lkD").after(r)}
  const P=["Personel","Ekip Lideri","Müdür","Direktör","Genel Müdür Yardımcısı","Genel Müdür"];
@@ -280,9 +281,12 @@ async function init(){
  lkInit(meId);$("main").innerHTML="";}
 function mergePE(){PE={...PE0};for(const k in ACC)PE[k]=ACC[k].name;render()}
 function stopData(){ACC={};PE0={};UNS.forEach(u=>{try{typeof u==="function"&&u()}catch(_){}});UNS=[];RAW={};PE={};COMP={name:"",p:{}};ORG={mgr:{},ms:[]};OWN="";for(const k in S)S[k]=[];S.pAll=[]}
+let ADM=[],admQ="",admOpen=null;
+const realOwner=()=>!!window.SA&&(PV?PV.own:isOwner);
 function startData(){const sub=(r,ok,er)=>{try{UNS.push(r.onSnapshot(ok,er||(()=>{})))}catch(_){}};
  sub(db.doc("meta/people"),s=>{PE0=s.exists?fix(s.data().map||{}):{};mergePE()});
- if(MODE==="me")sub(RDB.collection("accounts"),s=>{ACC={};s.docs.forEach(d=>{const a=d.data();ACC[d.id]={name:a.name,title:a.title,pos:a.pos}});mergePE()});
+ if(window.SA)sub(RDB.collection("accounts"),s=>{ADM=s.docs.map(d=>({id:d.id,...d.data()}));if(MODE==="me"){ACC={};ADM.forEach(a=>{ACC[a.id]={name:a.name,title:a.title,pos:a.pos,email:a.email||""}});mergePE()}else if(tab==="adm"||tab==="me")render()});
+ else if(MODE==="me")sub(RDB.collection("accounts"),s=>{ACC={};s.docs.forEach(d=>{const a=d.data();ACC[d.id]={name:a.name,title:a.title,pos:a.pos}});mergePE()});
  sub(db.doc("meta/org"),s=>{const d=s.exists?s.data():{};ORG={mgr:d.mgr||{},ms:d.ms||[]};recompute()});
  sub(db.doc("meta/company"),s=>{COMP=s.exists?fix(s.data()):{name:"",p:{}};recompute()});
  sub(db.doc("meta/owner"),s=>{OWN=s.exists?(s.data().id||""):"";if(isOwner&&OWN!==meId){db.doc("meta/owner").set({id:meId}).catch(()=>{})}recompute()});
@@ -292,18 +296,19 @@ function startData(){const sub=(r,ok,er)=>{try{UNS.push(r.onSnapshot(ok,er||(()=
 const my=()=>({ask:S.q.filter(x=>x.to===meId&&x.st==="wait"),got:S.q.filter(x=>x.by===meId&&x.st==="ans"),tk:S.t.filter(x=>x.to===meId&&x.st!=="done"),
  cc:[...S.mt.map(x=>({...x,_k:"m"})),...S.t.map(x=>({...x,_k:"t"}))].filter(x=>ccOnly(x)&&!(x.sn||[]).includes(meId)).sort((a,b)=>((b.cf||{})[meId+"_at"]||b.at)-((a.cf||{})[meId+"_at"]||a.at)),esc:S.q.filter(x=>escQ(x)&&(isOwner||x.by===meId||x.to===meId))});
 function render(){
- if(!db||!MODE)return;const m=my(),n=new Set([...m.esc,...m.ask,...m.got].map(x=>x.id)).size+m.tk.length,tn=m.tk.length;
+ if(!db||!MODE)return;const m=my(),n=new Set([...m.esc,...m.ask,...m.got].map(x=>x.id)).size+m.tk.length+S.t.filter(x=>(x.by===meId&&x.to!==meId&&x.st==="done"&&!x.ack&&(x.dn||0)>Date.now()-14*864e5)||(x.ext&&x.st!=="done"&&x.ext.by!==meId&&canMgT(x))).length,tn=m.tk.length;
  const keep={};document.querySelectorAll("#main [data-keep]").forEach(el=>keep[el.id]=el.value);
  const T=[["home","🏠","Ana sayfa",n],["p","📁","Projeler",0],["ag","📅","Takvim",S.t.filter(x=>x.to===meId&&x.st!=="done"&&x.due&&x.due<today()).length],["t","✅","Görevler",tn],["c","🏢","Şirket",0]];
  for(let i=T.length-1;i>=0;i--){const k=T[i][0];if(k==="t"||(k==="c"&&MODE==="me")||(k==="c"&&!(isOwner&&!PV)&&!["gm","gmy","dir","mud"].includes(lvl(meId))))T.splice(i,1)}
+ T.push(["me","👤","Profil",0]);if(realOwner())T.push(["adm","🛠","Yönetici",0]);
  if(!T.some(x=>x[0]===tab)&&!openP&&!openU)tab="home";
  $("nav").innerHTML=T.map(([k,i,l,b])=>`<button class="${tab===k&&!openQ&&!openT&&!openM?"on":""}" onclick="A.go('${k}')"><i>${i}</i>${l}${b?`<span class="bd">${b}</span>`:""}</button>`).join("");
- $("ttl").textContent=openG&&!openM&&!openT?"Bağımsız toplantılar":openM?(openT?"Görev":"Toplantı notu"):openQ?"Soru":openT?"Görev":openP?(pn(openP)||"Proje"):openU?"Birim":{home:"Ana sayfa",ag:"Takvim",mt:"Toplantılar",t:"Görevler",p:"Projeler",c:"Şirket"}[tab];
+ $("ttl").textContent=openG&&!openM&&!openT?"Bağımsız toplantılar":openM?(openT?"Görev":"Toplantı notu"):openQ?"Soru":openT?"Görev":openP?(pn(openP)||"Proje"):openU?"Birim":{home:"Ana sayfa",ag:"Takvim",mt:"Toplantılar",t:"Görevler",p:"Projeler",c:"Şirket",me:"Profil",adm:"Yönetici modu"}[tab];
  $("sub").textContent=MODE==="me"?"Kişisel alan":"Demo · "+(COMP.name||"örnek şirket");
  const fab=$("fab"),sub=openQ||openT||openP||tab==="home";fab.style.display="none";fab.textContent=tab==="t"?"＋ Görev ver":tab==="p"?"＋ Proje":"＋ Soru sor";
  const topBtns="";
- $("main").innerHTML=(PV?pvBanner():"")+(openM?mdetail():openG&&!openT?gscreen():openQ?detail():openT?tdetail():openP?pdetail():openU?unitScreen():tab==="c"?company():tab==="home"?home(m)+`<div style="text-align:center;margin:22px 0 6px"><button class="btn g sm" onclick="lkLock()">🔒 Kilitle · mod değiştir</button>${window.SA&&MODE==="me"&&!PV?`<div style="margin-top:14px"><button class="btn g sm dg" onclick="A.delAcc()">${armed==="delacc"?"Emin misin? Hesabın kalıcı olarak silinir":"Hesabımı sil"}</button></div>`:""}</div>`:tab==="p"?topBtns+(canNewP()?`<div style="margin:0 0 10px"><button class="btn g sm" onclick="A.form('p')">＋ Yeni proje</button></div>`:"")+gcard()+projects():tab==="ag"?agenda():tab==="mt"?topBtns+mlist():topBtns+list());
- for(const id in keep){const el=$(id);if(el&&!el.value)el.value=keep[id]}}
+ $("main").innerHTML=(PV?pvBanner():"")+(openM?mdetail():openG&&!openT?gscreen():openQ?detail():openT?tdetail():openP?pdetail():openU?unitScreen():tab==="c"?company():tab==="home"?home(m):tab==="me"?profile():tab==="adm"?admin():tab==="p"?topBtns+(canNewP()?`<div style="margin:0 0 10px"><button class="btn g sm" onclick="A.form('p')">＋ Yeni proje</button></div>`:"")+gcard()+projects():tab==="ag"?agenda():tab==="mt"?topBtns+mlist():topBtns+list());
+ for(const id in keep){const el=$(id);if(el&&!el.value)el.value=keep[id]}try{ntBadge()}catch(_){}}
 A.go=k=>{tab=k;openG=false;af="me";filt="";lf="all";mf="all";openM=null;openQ=null;openT=null;openP=null;openU=null;USt=[];if(unsubR){unsubR();unsubR=null}render();scrollTo(0,0)};
 A.back=()=>{if(openT&&openM){openT=null;render();return}openQ=null;openT=null;openM=null;if(unsubR){unsubR();unsubR=null}PA=[];render()};
 A.jump=id=>{const el=$(id);if(el)el.scrollIntoView({behavior:"smooth",block:"start"});else toast("Bu listede şu an kayıt yok")};
@@ -323,7 +328,7 @@ function home(m){const l=lvl(meId);if(!isMgrL())return focusW()+homeMine(m);
 A.hv=v=>{homeView=v;sv("hv",v);render();scrollTo(0,0)};
 function homeMine(m){
  if(window.SA&&MODE==="demo"&&!S.pAll.length)return`<div class="empty"><div class="e">🏢</div><b>Demo verisi yüklenmemiş</b><br>${isOwner?`<br><button class="btn" onclick="A.seed()">Demo verisini yükle</button>`:"Uygulama sahibinin demo verisini yüklemesi gerekiyor."}</div>`;
- if(!S.p.length&&!isMgrL())return`<div class="empty"><div class="e">👋</div><b>Hoş geldin!</b><br>Başlamak için ilk projeni ekle.<br><br><button class="btn" onclick="A.form('p')">＋ İlk projemi ekle</button></div>`;
+ if(!S.p.length&&!isMgrL())return canNewP()?`<div class="empty"><div class="e">👋</div><b>Hoş geldin!</b><br>Başlamak için ilk projeni ekle.<br><br><button class="btn" onclick="A.form('p')">＋ İlk projemi ekle</button></div>`:`<div class="empty"><div class="e">👋</div><b>Hoş geldin!</b><br>Henüz bir projede değilsin.<br>Proje yöneticin seni ekibe eklediğinde projeler ve sana verilen görevler burada görünür.</div>`;
  const td=today(),HR=36e5;
  const A1=[],B1=[];
  m.ask.forEach(x=>A1.push({k:escQ(x)?0:overQ(x)?1:3,q:1,x,who:x.by,b:escQ(x)?"🚨 "+fmtH(waitH(x)):overQ(x)?"⏰ Süre doldu":"⏳ "+fmtH(waitH(x)),bc:escQ(x)||overQ(x)?"r":"",ln:"Soran: "+nE(x.by),a:"Cevapla"}));
@@ -331,6 +336,8 @@ function homeMine(m){
  m.tk.forEach(x=>{const late=x.due&&x.due<td;A1.push({k:late?1:x.due===td?2:4,d:x.due||"9",x,who:x.by,b:late?"⏰ "+(-dd(x.due))+" gün gecikti":x.due===td?"📅 Bugün":x.due?"📅 "+ds(x.due):"Yapılacak",bc:late?"r":x.due===td?"w":"",ln:"Görev · Veren: "+nE(x.by),a:"Tamamla"})});
  S.q.filter(x=>x.by===meId&&x.st==="wait"&&x.to!==meId).forEach(x=>B1.push({k:escQ(x)?0:overQ(x)?1:3,q:1,x,who:x.to,b:escQ(x)?"🚨 "+fmtH(waitH(x)):overQ(x)?"⏰ Süre doldu":"⏳ "+fmtH(waitH(x)),bc:escQ(x)||overQ(x)?"r":"",ln:"Cevaplayacak: "+nE(x.to),a:"Hatırlat"}));
  S.t.filter(x=>x.by===meId&&x.to!==meId&&x.st!=="done").forEach(x=>{const late=x.due&&x.due<td;B1.push({k:late?1:4,d:x.due||"9",x,who:x.to,b:late?"⏰ "+(-dd(x.due))+" gün gecikti":x.due?"📅 "+ds(x.due):"Yapılacak",bc:late?"r":"",ln:"Görev · Yapacak: "+nE(x.to),a:""})});
+ S.t.filter(x=>x.by===meId&&x.to!==meId&&x.st==="done"&&!x.ack&&(x.dn||0)>Date.now()-14*864e5).forEach(x=>A1.push({k:2,dn:1,x,who:x.to,b:"✅ Bitti",bc:"a",ln:"Tamamlayan: "+nE(x.to),a:"Gördüm"}));
+ S.t.filter(x=>x.ext&&x.st!=="done"&&canMgT(x)&&x.ext.by!==meId).forEach(x=>A1.push({k:0,x,who:x.ext.by,b:"⏳ Süre isteği",bc:"w",ln:"İsteyen: "+nE(x.ext.by)+" · "+ds(x.ext.d),a:""}));
  S.p.filter(isPM).forEach(p=>{const w=S.rq.filter(x=>x.p===p.id&&x.st==="wait");if(w.length)A1.push({k:0,rp:1,x:{id:p.id,title:"Haftalık rapor: düzenleme önerisi ("+w.length+")",p:p.id},who:w[0].by,b:"📄 Onay bekliyor",bc:"w",ln:"Öneren: "+nE(w[0].by),a:"İncele"})});
  const srt=L=>L.sort((a,b)=>a.k-b.k||(b.q||0)-(a.q||0)||(a.d||"9").localeCompare(b.d||"9"));srt(A1);srt(B1);B1.sort((a,b)=>(b.q||0)-(a.q||0));
  const C1=m.cc;if(homeTab==="c")return homeTop()+homeSegs(A1.length,B1.length,C1.length)+homeInfo(C1);
@@ -340,9 +347,9 @@ function homeMine(m){
  h+=`<div class="sub2">${ta?"Senin yapman gerekenler":"Başkalarına verdiğin, devam eden işler"}</div>`;
  if(!L.length)h+=`<div class="empty"><div class="e">🎉</div>${ta?"Bekleyen işin yok.":"Başkalarına verdiğin açık görev yok."}</div>`;
  h+=vis.length?`<div class="ls">`+vis.map(r=>{const open=r.rp?`A.report('${r.x.id}')`:r.q?`A.oq('${r.x.id}')`:`A.ot('${r.x.id}')`;
-  let lead=av(r.who);if(r.a==="Tamamla")lead=blocked(r.x)?`<span class="ck" style="opacity:.4" title="Beklemede"></span>`:`<button class="ck" aria-label="Tamamla" onclick="event.stopPropagation();A.tg('${r.x.id}')"></button>`;
+  let lead=av(r.who);if(r.dn)lead=`<button class="ck on" aria-label="Gördüm" title="Gördüm, kaldır" onclick="event.stopPropagation();A.ack('${r.x.id}')">✓</button>`;if(r.a==="Tamamla")lead=blocked(r.x)?`<span class="ck" style="opacity:.4" title="Beklemede"></span>`:`<button class="ck" aria-label="Tamamla" onclick="event.stopPropagation();A.tg('${r.x.id}')"></button>`;
   const lv=r.k<2?"r":r.k<4?"w":"",bt=String(r.b).replace(/^[^\wÇĞİÖŞÜçğıöşü0-9]+\s*/,"");
-  return`<div class="it ${lv}" onclick="${open}">${lead}<div class="tx"><div class="t">${e(r.x.title)}</div><div class="m">${e(r.ln.replace(/^Görev · /,""))}${pn(r.x.p)?" · "+e(pn(r.x.p)):""}</div></div><div class="e ${r.bc}">${bt}</div></div>`}).join("")+`</div>`:"";
+  return`<div class="it ${lv}" onclick="${open}">${lead}<div class="tx"><div class="t">${e(r.x.title)} ${r.x.pr&&r.x.pr<3?PRI[r.x.pr][0]:""}</div><div class="m">${e(r.ln.replace(/^Görev · /,""))}${pn(r.x.p)?" · "+e(pn(r.x.p)):""}</div></div><div class="e ${r.bc}">${bt}</div></div>`}).join("")+`</div>`:"";
  if(L.length>8)h+=`<button class="btn g" style="width:100%" onclick="homeAll=!homeAll;render()">${homeAll?"Daha az göster":"Tümünü göster ("+L.length+")"}</button>`;
  
  return h}
@@ -399,11 +406,14 @@ function pvList(){let h="";const ks=Object.keys(COMP.p),by=l=>ks.filter(i=>COMP.
   by("dir").forEach(d=>{const ms=by("mud").filter(m=>COMP.p[m].b===d);
    h+=`<details style="margin-top:10px"><summary><span style="flex:1"><span class="who">${e(COMP.p[d].d)}</span><br><span class="mu">${ms.length} müdürlük · ${desc(d).length} kişi</span></span></summary><div class="chips" style="margin-top:8px">${chip(d,"Direktör")}</div>`+ms.map(m=>{const el=kids(m)[0],pe=el?kids(el)[0]:null;return`<div class="mu" style="margin:12px 0 4px"><b>${e(COMP.p[m].m)}</b></div><div class="chips">${chip(m,"Müdür")}${el?chip(el,"Ekip Lideri"):""}${pe?chip(pe,"Personel"):""}</div>`}).join("")+`</details>`})
  return h}
-A.pvPick=()=>sh(`<h3>👁 Rol önizleme</h3>`+pvList().replace(/<h2>👁 Rol önizleme<\/h2>/,"")+`<button class="btn g f" style="margin-top:12px" onclick="A.shut()">Kapat</button>`);
+A.pvSrch=q=>{const el=$("pv_r");if(!el)return;q=q.trim().toLocaleLowerCase("tr");if(q.length<2){el.innerHTML="";return}
+ const ids=[...new Set([...Object.keys(COMP.p||{}),...(MODE==="me"?ADM.map(a=>a.id):[])])].filter(i=>(nm(i)||"").toLocaleLowerCase("tr").includes(q)).slice(0,12);
+ el.innerHTML=ids.map(i=>`<button class="chip" onclick="A.pv('${i}')">${e(nm(i))}<span class="mu" style="color:inherit;opacity:.7"> · ${e(LVN[lvl(i)]||(ACC[i]&&ACC[i].title)||"")}</span></button>`).join("")||'<span class="mu">Bulunamadı</span>'};
+A.pvPick=()=>sh(`<h3>👁 Rol önizleme</h3><input class="in" placeholder="🔍 İsimle ara…" oninput="A.pvSrch(this.value)"><div class="chips" id="pv_r" style="margin-top:8px"></div>`+pvList().replace(/<h2>👁 Rol önizleme<\/h2>/,"")+`<button class="btn g f" style="margin-top:12px" onclick="A.shut()">Kapat</button>`);
 const pvBanner=()=>`<div class="pvb"><span>👁 <b>${nE(meId)}</b> · ${LVN[lvl(meId)]||""}${GUEST?" · sadece görüntüleme":""}</span><button onclick="A.pvPick()">Değiştir</button><button onclick="A.pvx()">Çık</button></div>`;
 const roDb=d=>{const no=()=>{toast("Önizlemede değişiklik yapılamaz");return Promise.reject(new Error("ro"))};return{collection:c=>({onSnapshot:(...a)=>d.collection(c).onSnapshot(...a),add:no}),doc:p=>{const x=d.doc(p);return{onSnapshot:(...a)=>x.onSnapshot(...a),get:()=>x.get(),set:no,update:no,delete:no}}}};
 A.pv=id=>{if(!PV)PV={me:meId,own:isOwner,db:db};db=PV.db;meId=id;isOwner=false;openM=null;openQ=null;openT=null;openP=null;openU=null;USt=[];tab="home";homeView="panel";F={};A.shut();recompute();scrollTo(0,0)};
-A.pvx=()=>{if(!PV)return;db=PV.db;meId=PV.me;isOwner=PV.own;PV=null;openM=null;openQ=null;openT=null;openP=null;openU=null;USt=[];tab="c";recompute();scrollTo(0,0)};
+A.pvx=()=>{if(!PV)return;db=PV.db;meId=PV.me;isOwner=PV.own;PV=null;openM=null;openQ=null;openT=null;openP=null;openU=null;USt=[];tab=PVT==="adm"?"adm":MODE==="me"?"home":"c";PVT="";recompute();scrollTo(0,0)};
 function chipsP(){return`<div class="chips scr" style="margin:0 -16px 4px"><button class="chip ${!filt?"on":""}" onclick="filt='';render()">Tüm projeler</button>${S.p.map(p=>`<button class="chip ${filt===p.id?"on":""}" onclick="filt='${p.id}';render()">${e(p.name)}</button>`).join("")}</div>`}
 function list(){const a=S[tab].filter(x=>(!filt||x.p===filt)&&(lf==="me"?x.to===meId:lf==="by"?x.by===meId:true));
  const open=a.filter(x=>x.st!=="done"),done=a.filter(x=>x.st==="done"),f=tab==="q"?qc:tc;
@@ -419,21 +429,39 @@ function pstats(p){const T=S.t.filter(x=>x.p===p.id),Q=S.q.filter(x=>x.p===p.id)
  const oldest=waitQ.reduce((a,x)=>!a||x.at<a.at?x:a,null),days=oldest?Math.floor((Date.now()-oldest.at)/864e5):0;
  const M=S.m.filter(x=>x.p===p.id),R=S.r.filter(x=>x.p===p.id),openR=R.filter(x=>x.st!=="closed"),hiR=openR.filter(x=>x.pr*x.im>=6),D=Q.filter(x=>x.dec);
  const acts=[...T,...Q].flatMap(x=>[x.at,...(x.nt||[]).map(n=>n.at),...(x.rs||[]).map(n=>n.at)]);
- return{T,Q,openT,doneT,late,waitQ,ansQ,escs,oldest,days,M,R,openR,hiR,D,last:acts.length?Math.max(...acts):null,pct:T.length?Math.round(doneT*100/T.length):0}}
+ return{p,T,Q,openT,doneT,late,waitQ,ansQ,escs,oldest,days,M,R,openR,hiR,D,last:acts.length?Math.max(...acts):null,pct:T.length?Math.round(doneT*100/T.length):0}}
 function members(p){const s=pstats(p);const ids=p.mem&&p.mem.length?[...p.mem]:[...new Set([...s.T,...s.Q].flatMap(x=>[x.by,x.to]).filter(Boolean))];if(!ids.includes(meId)&&(isOwner||!isMgrOf(p,meId)))ids.unshift(meId);return ids}
-function health(s){if(s.late.length>=2||s.escs.length||s.days>=7)return["🔴","Acil müdahale gerekiyor"];if(s.late.length||s.days>=3||s.hiR.length>=2)return["🟠","Dikkat gerekiyor"];return["🟢","Yolunda"]}
+function health(s){if(s.p&&s.p.st==="done")return["✅","Tamamlandı"];if(s.p&&s.p.st==="hold")return["⏸","Beklemede"];if(!s.T.length&&!s.M.length&&!s.R.length)return["⚪","Henüz başlamadı"];if(s.late.length>=2||s.escs.length||s.days>=7)return["🔴","Acil müdahale gerekiyor"];if(s.late.length||s.days>=3||s.hiR.length>=2)return["🟠","Dikkat gerekiyor"];return["🟢","Yolunda"]}
 const trow=x=>{const od=x.due&&x.due<today()&&x.st!=="done",bl=blocked(x),dn=x.st==="done";
  const who=x.to===meId&&x.by===meId?"Kendine":x.to===meId?"Veren: "+nE(x.by):x.by===meId?"Yapacak: "+nE(x.to):nE(x.to);
  const st=dn?"Bitti":bl?"Beklemede":x.st==="doing"?"Sürüyor":"";
- return`<div class="ls" style="margin-bottom:8px"><div class="it ${od?"r":""}" onclick="A.ot('${x.id}')"><button class="ck ${dn?"on":""}" aria-label="Tamamla" onclick="event.stopPropagation();A.tg('${x.id}')">${dn?"✓":""}</button><div class="tx"><div class="t">${e(x.title)}</div><div class="m">${who}${st?" · "+st:""}</div></div>${x.due?`<div class="e ${od?"r":""}">${od?-dd(x.due)+" gün gecikti":ds(x.due)}</div>`:""}</div></div>`};
+ return`<div class="ls" style="margin-bottom:8px"><div class="it ${od?"r":""}" onclick="A.ot('${x.id}')"><button class="ck ${dn?"on":""}" aria-label="Tamamla" onclick="event.stopPropagation();A.tg('${x.id}')">${dn?"✓":""}</button><div class="tx"><div class="t">${e(x.title)} ${x.pr&&x.pr<3?PRI[x.pr][0]:""}</div><div class="m">${who}${st?" · "+st:""}${x.ext&&!dn?" · ⏳ süre isteği":""}</div></div>${x.due?`<div class="e ${od?"r":""}">${od?-dd(x.due)+" gün gecikti":ds(x.due)}</div>`:""}</div></div>`};
 const qrow=x=>`<div class="card u${x.u||0}" onclick="A.oq('${x.id}')">${rbq(x)}<b>${e(x.title)}</b>${qwho(x)}${slaTag(x)}${x.kind==="onay"?`<span class="tag a">✅ Onay</span>`:""}${x.u?`<span class="tag r">${UR[x.u]}</span>`:""}<span class="tag">${fmtH(waitH(x))} bekliyor</span></div>`;
 function pdetail(){const p=S.p.find(x=>x.id===openP);if(!p)return"";const s=pstats(p);
  const mT=s.openT.filter(x=>x.to===meId),mQ=s.waitQ.filter(x=>x.to===meId),mG=s.ansQ.filter(x=>x.by===meId),mine=mT.length+mQ.length+mG.length;
  const tabs=[["ozet","Özet",0],["acik","İşler",s.openT.length],["ekip","Ekip",members(p).length],["plan","Plan",0],["karar","Toplantılar",S.mt.filter(x=>x.p===p.id).length],["risk","Risk",s.openR.length]];
  let h=canAct(p)?`<div class="big cmp" style="margin:0 0 10px"><button onclick="A.meet('${p.id}')">📝 Toplantı notu</button><button class="s" onclick="A.form('t',{p:'${p.id}'})">✅ Görev ver</button></div>`:`<div class="mu" style="margin:0 0 10px">👁 Bu projeyi sadece görüntüleyebilirsin (${e(roleOf(p,meId))}).</div>`;h+=`<div class="chips scr" style="margin-top:0">`+tabs.map(([k,l,n])=>`<button class="chip ${pt===k?"on":""}" onclick="pt='${k}';pf='';render()">${l}${n?` (${n})`:""}</button>`).join("")+`</div>`;
  return h+(pt==="ozet"?pozet(p,s,mine):pt==="bana"?pbana(mT,mQ,mG):pt==="acik"?pacik(s):pt==="ekip"?pekip(p,s):pt==="plan"?pplan(p,s):pt==="karar"?pmeet(p):prisk(p,s))}
+const PST={act:"Aktif",hold:"Beklemede",done:"Tamamlandı",arc:"Arşivde"};
+const canDelP=p=>!!p&&(isOwner||isPM(p));
+A.pedit=pid=>{const p=S.p.find(x=>x.id===pid);if(!p||!canEditP(p))return;
+ sh(`<h3>✏️ Proje bilgileri</h3><label>Proje adı</label><input id="pe_n" class="in" value="${e(p.name)}"><label>Müşteri / kurum (isteğe bağlı)</label><input id="pe_c" class="in" value="${e(p.cus||"")}" placeholder="Örn: SSB, Kara Kuvvetleri"><label>Açıklama (isteğe bağlı)</label><textarea id="pe_d" class="in" rows="3" placeholder="Projenin kapsamı, hedefi">${e(p.desc||"")}</textarea>
+ <div class="row" style="gap:8px"><div style="flex:1"><label>Başlangıç</label><input id="pe_s" type="date" class="in" value="${e(p.start||"")}"></div><div style="flex:1"><label>Bitiş</label><input id="pe_e" type="date" class="in" value="${e(p.end||"")}"></div></div>
+ <label>Durum</label><select id="pe_st" class="in">${Object.entries(PST).map(([k,l])=>`<option value="${k}" ${(p.st||"act")===k?"selected":""}>${l}</option>`).join("")}</select>
+ <button class="btn f" onclick="A.peditSave('${pid}')">Kaydet</button>${canDelP(p)?`<button class="btn g f dg" style="margin-top:8px" onclick="A.pdel('${pid}')">${armed==="pd"+pid?"Emin misin? Proje ve tüm görevleri silinir":"Projeyi sil"}</button>`:""}<button class="btn g f" style="margin-top:8px" onclick="A.shut()">Vazgeç</button>`)};
+A.peditSave=async pid=>{const p=S.p.find(x=>x.id===pid),n=$("pe_n").value.trim();if(!n){toast("Proje adı yaz");return}
+ const u={name:n,cus:$("pe_c").value.trim(),desc:$("pe_d").value.trim(),start:$("pe_s").value,end:$("pe_e").value,st:$("pe_st").value};
+ if(u.start&&u.end&&u.end<u.start){toast("Bitiş, başlangıçtan önce olamaz");return}
+ try{await db.doc("projects/"+pid).update(u);A.shut();toast("Proje güncellendi ✓")}catch(_){toast("Kaydedilemedi")}};
+A.pdel=async pid=>{if(armed!=="pd"+pid){armed="pd"+pid;A.pedit(pid);return}armed="";const p=S.p.find(x=>x.id===pid);if(!canDelP(p))return;toast("Siliniyor…");
+ try{for(const[c,k]of[["tasks","t"],["milestones","m"],["risks","r"],["meetings","mt"]])for(const x of (RAW[k]||[]).filter(x=>x.p===pid))await db.doc(c+"/"+x.id).delete();await db.doc("projects/"+pid).delete();A.shut();openP=null;tab="p";render();toast("Proje silindi")}catch(_){toast("Silinemedi")}};
+function pinfo(p){const bits=[p.cus?"🏛 "+e(p.cus):"",p.start||p.end?"📆 "+(p.start?ds(p.start):"…")+" – "+(p.end?ds(p.end):"…"):"",p.st&&p.st!=="act"?`<span class="tag ${p.st==="done"?"d":""}">${PST[p.st]}</span>`:""].filter(Boolean);
+ const en=p.end&&p.st!=="done"?dd(p.end):null;
+ return(bits.length||p.desc||canEditP(p))?`<div class="card" style="padding:12px 14px"><div class="row" style="justify-content:space-between;align-items:flex-start;gap:8px"><div style="flex:1;min-width:0">${bits.length?`<div class="mu" style="line-height:1.7">${bits.join(" · ")}${en!=null?` · <b style="color:${en<0?"var(--rd)":"inherit"}">${en<0?-en+" gün gecikti":en+" gün kaldı"}</b>`:""}</div>`:`<div class="mu">Müşteri, tarih ve açıklama eklenmemiş.</div>`}${p.desc?`<div style="margin-top:6px;white-space:pre-wrap">${e(p.desc)}</div>`:""}</div>${canEditP(p)?`<button class="btn g sm" onclick="A.pedit('${p.id}')">✏️ Düzenle</button>`:""}</div></div>`:""}
+function pnext(p,s){if(!canAct(p))return"";const st=[[members(p).length>1,"Ekibini ekle",`A.team('${p.id}')`],[s.T.length>0,"İlk görevi ver",`A.form('t',{p:'${p.id}'})`],[s.M.length>0,"Kilometre taşı ekle",`pt='plan';render();A.msForm('${p.id}')`]];
+ if(st.every(x=>x[0]))return"";return`<div class="card" style="border-color:var(--ac);background:var(--ac2)"><b>🚀 Projeyi kur</b>${st.map(([ok,l,fn],i)=>`<div class="row" style="margin-top:8px;align-items:center;gap:10px"><span style="width:22px;text-align:center">${ok?"✅":i+1+"."}</span><span style="flex:1;${ok?"text-decoration:line-through;opacity:.6":""}">${l}</span>${ok?"":`<button class="btn sm" onclick="${fn}">Başla</button>`}</div>`).join("")}</div>`}
 function pozet(p,s,mine){const[ic,lb]=health(s);
- let h=`<div class="card"><div class="row" style="justify-content:space-between"><b style="font-size:18px">${ic} ${lb}</b><span class="mu">${s.last?"Son hareket: "+ago(s.last):""}</span></div><div class="bar" style="margin:12px 0 6px"><i style="width:${s.pct}%"></i></div><span class="mu">Görevlerin %${s.pct}'i tamamlandı (${s.doneT}/${s.T.length})</span></div>`;
+ let h=pnext(p,s)+pinfo(p)+`<div class="card"><div class="row" style="justify-content:space-between"><b style="font-size:18px">${ic} ${lb}</b><span class="mu">${s.last?"Son hareket: "+ago(s.last):""}</span></div><div class="bar" style="margin:12px 0 6px"><i style="width:${s.pct}%"></i></div><span class="mu">Görevlerin %${s.pct}'i tamamlandı (${s.doneT}/${s.T.length})</span></div>`;
  const pms=pmIds(p).map(nE).join(", ");h+=`<div class="mu" style="margin:10px 2px 0">${pms?"🧭 Proje yöneticisi: <b>"+e(pms)+"</b>":""}${(p.mem||[]).includes(meId)||isMgrOf(p,meId)?" · Rolün: <b>"+e(roleOf(p,meId))+"</b>":""}</div><button class="btn g" style="width:100%;margin:8px 0 4px" onclick="A.team('${p.id}')">👥 ${isLead(p,meId)?"Ekibim ve proje ekibi":"Proje ekibi"} · ${members(p).length} kişi</button>`;
  h+=`<div class="grid"><div class="st" onclick="pt='acik';pf='task';render();scrollTo(0,0)"><b>${s.openT.length}</b><div class="mu">Açık görev</div></div><div class="st" onclick="pt='acik';pf='late';render();scrollTo(0,0)"><b style="color:${s.late.length?"var(--rd)":"inherit"}">${s.late.length}</b><div class="mu">Geciken</div></div><div class="st" onclick="pt='karar';render();scrollTo(0,0)"><b>${S.mt.filter(x=>x.p===p.id).length}</b><div class="mu">Toplantı</div></div></div>`;
  const n=[],nx=s.M.filter(x=>!x.done).sort((a,b)=>a.date<b.date?-1:1)[0];
@@ -442,7 +470,7 @@ function pozet(p,s,mine){const[ic,lb]=health(s);
  else if(s.oldest&&s.days>=2)n.push(`💬 En uzun bekleyen soru ${s.days} gündür cevapsız: ${e(s.oldest.title)} (${nE(s.oldest.to)})`);
  if(s.hiR.length)n.push(`⚠️ ${s.hiR.length} yüksek riskli madde açık`);
  if(nx){const d=dd(nx.date);n.push(`🏁 Sıradaki kilometre taşı: ${e(nx.title)} · ${d<0?-d+" gün gecikti":d===0?"bugün":d+" gün kaldı"}`)}
- if(mine)n.push(`👤 Senden ${mine} konu hamle bekliyor`);
+ if(mine)n.push(`👤 Bu projede senin yapman gereken ${mine} iş var`);
  if(!n.length)n.push("✅ Şu an dikkat gerektiren bir durum yok.");
  h+=`<h2>Dikkat edilecekler</h2><div class="card">${n.map(x=>`<div style="margin:6px 0">${x}</div>`).join("")}</div>`;
  const rc=s.T.filter(x=>x.st==="done").sort((a,b)=>doneAt(b)-doneAt(a)).slice(0,3);
@@ -453,9 +481,10 @@ function pbana(mT,mQ,mG){const h=sec("b1","Cevaplaman gereken sorular",mQ.map(qr
  return h||`<div class="empty"><div class="e">🎉</div>Bu projede senden bekleyen bir şey yok.</div>`}
 function pacik(s){const od=x=>x.due&&x.due<today()?1:0,base=pf==="late"?s.late:s.openT;
  const T=[...base].sort((a,b)=>od(b)-od(a)||((a.due||"9")<(b.due||"9")?-1:1)),Q=[...s.waitQ].sort((a,b)=>(b.u||0)-(a.u||0)||a.at-b.at);
- const F2=[["","Hepsi"],["late","⏰ Geciken ("+s.late.length+")"],["task","Açık görevler ("+s.openT.length+")"]];
+ const dT=s.T.filter(x=>x.st==="done").sort((a,b)=>(b.dn||0)-(a.dn||0));if(pf==="done")return`<div class="chips" style="margin-bottom:6px">`+[["","Açık ("+s.openT.length+")"],["late","⏰ Geciken ("+s.late.length+")"],["done","✓ Biten ("+dT.length+")"]].map(([k,l])=>`<button class="chip ${pf===k?"on":""}" onclick="pf='${k}';render()">${l}</button>`).join("")+`</div>`+(dT.map(trow).join("")||`<div class="empty">Henüz biten görev yok.</div>`);
+ const F2=[["","Açık ("+s.openT.length+")"],["late","⏰ Geciken ("+s.late.length+")"],["done","✓ Biten ("+dT.length+")"]];
  let h=`<div class="chips" style="margin-bottom:6px">`+F2.map(([k,l])=>`<button class="chip ${pf===k?"on":""}" onclick="pf='${k}';render()">${l}</button>`).join("")+`</div>`;
- if(pf!=="wait")h+=`<h2>${pf==="late"?"Geciken görevler":"Açık görevler"} (${T.length})</h2>`+(T.map(trow).join("")||`<div class="empty">Bu listede görev yok 👍</div>`);
+ if(pf!=="wait")h+=(T.map(trow).join("")||`<div class="empty">Bu listede görev yok 👍</div>`);
  if(0)h+=`<h2>Cevap bekleyen sorular (${Q.length})</h2>`+(Q.map(qrow).join("")||`<div class="empty">Cevap bekleyen soru yok 👍</div>`);
  return h}
 function pekip(p,s){const L=members(p).map(id=>{const t=s.openT.filter(x=>x.to===id),q=s.waitQ.filter(x=>x.to===id),d=s.T.filter(x=>x.to===id&&x.st==="done").length,rts=s.Q.filter(x=>x.to===id).map(rtime).filter(v=>v!=null);return{id,t,q,d,n:t.length+q.length,avg:rts.length>=2?rts.reduce((a,b)=>a+b,0)/rts.length/36e5:null}}).sort((a,b)=>(b.id===meId)-(a.id===meId)||b.n-a.n),mx=Math.max(5,...L.map(x=>x.n));
@@ -473,17 +502,20 @@ function prisk(p,s){const L=[...s.R].sort((a,b)=>(a.st==="closed")-(b.st==="clos
  let h=`<div class="sp"><h2 style="margin:6px 0">Risk ve sorunlar</h2>${canAct(p)?`<button class="btn g sm" onclick="A.riskForm('${p.id}')">＋ Ekle</button>`:""}</div>`;
  h+=L.map(x=>{const sc=x.pr*x.im,lv=sc>=6?["Yüksek","r"]:sc>=3?["Orta","w"]:["Düşük","d"];return`<div class="card ${x.st==="closed"?"dn":sc>=6?"u2":sc>=3?"u1":""}"><b>${e(x.title)}</b><span class="mu">Sorumlu: <span class="who">${nE(x.own)}</span> · Olasılık ${LV[Math.min(3,x.pr)]} · Etki ${LV[Math.min(3,x.im)]}</span><br><span class="tag ${lv[1]}">${lv[0]} risk</span>${x.st==="closed"?`<span class="tag d">Kapandı</span>`:""}${x.mit?`<div class="mu" style="margin-top:6px">🛡 Önlem: ${e(x.mit)}</div>`:""}${canRisk(p,x)?`<div style="margin-top:6px"><button class="tag" onclick="A.riskTg('${x.id}')">${x.st==="closed"?"Yeniden aç":"✓ Kapat"}</button>${canEditP(p)||DEPT(meId)==="kalite"?`<button class="tag ${armed==="r"+x.id?"r":""}" onclick="A.del('r','${x.id}')">${armed==="r"+x.id?"Emin misin? Sil":"Sil"}</button>`:""}</div>`:""}</div>`}).join("")||`<div class="empty"><div class="e">🛡</div>Kayıtlı risk yok.</div>`;
  return h}
-function projects(){return S.p.map(p=>{const s=pstats(p),[ic]=health(s),mn=s.openT.filter(x=>x.to===meId).length+s.waitQ.filter(x=>x.to===meId).length;
- return`<div class="card" onclick="A.sp('${p.id}')"><div class="row" style="justify-content:space-between"><b>${e(p.name)}</b><span>${ic}</span></div><div class="bar" style="margin:8px 0"><i style="width:${s.pct}%"></i></div><span class="mu">%${s.pct} tamam · ${s.openT.length} açık görev${p.mem?" · "+p.mem.length+" kişi":""}</span>${mn?`<br><span class="tag w">Senden ${mn} iş bekliyor</span>`:""}${s.late.length?`<span class="tag r">${s.late.length} geciken görev</span>`:""}${s.escs.length?`<span class="tag r">🚨 ${s.escs.length} müdahale</span>`:""}</div>`}).join("")||`<div class="empty"><div class="e">📁</div>${lvl(meId)==="dir"?"Üyesi olduğun proje yok.":"Henüz proje yok."}</div>`}
+let pArc=false;
+function projects(){const arc=S.p.filter(p=>p.st==="arc"),L=S.p.filter(p=>pArc?p.st==="arc":p.st!=="arc");return(pArc?`<button class="btn g sm" style="margin-bottom:10px" onclick="pArc=false;render()">‹ Aktif projeler</button>`:"")+L.map(p=>{const s=pstats(p),[ic]=health(s),mn=s.openT.filter(x=>x.to===meId).length+s.waitQ.filter(x=>x.to===meId).length;
+ return`<div class="card" onclick="A.sp('${p.id}')"><div class="row" style="justify-content:space-between"><b>${e(p.name)}</b><span>${ic}</span></div><div class="bar" style="margin:8px 0"><i style="width:${s.pct}%"></i></div><span class="mu">${s.T.length?"%"+s.pct+" tamam · "+s.openT.length+" açık görev":"Henüz görev yok"}${p.mem?" · "+p.mem.length+" kişi":""}${p.end&&p.st!=="done"?" · Bitiş "+ds(p.end):""}</span>${p.st&&p.st!=="act"?`<br><span class="tag ${p.st==="done"?"d":""}">${PST[p.st]}</span>`:""}${mn?`<br><span class="tag w">Senden ${mn} iş bekliyor</span>`:""}${s.late.length?`<span class="tag r">${s.late.length} geciken görev</span>`:""}${s.escs.length?`<span class="tag r">🚨 ${s.escs.length} müdahale</span>`:""}</div>`}).join("")+(!pArc&&arc.length?`<button class="btn g" style="width:100%;margin-top:6px" onclick="pArc=true;render()">🗄 Arşivdeki projeler (${arc.length})</button>`:"")||`<div class="empty"><div class="e">📁</div>${lvl(meId)==="dir"?"Üyesi olduğun proje yok.":canNewP()?"Henüz proje yok.":"Henüz bir projede değilsin. Proje yöneticin seni ekibe eklediğinde burada görünür."}</div>`}
 function projStrip(){return S.p.length?`<h2>Projelerim</h2>`+projects():""}
 /* ---------- soru detay ---------- */
-const attHtml=(l,rm)=>(l&&l.length)?`<div class="atts">${l.map((a,i)=>/^image\//.test(a.type||"")?`<span style="position:relative"><a href="/_blob/${e(a.id)}" target="_blank" rel="noopener"><img class="thumb" loading="lazy" alt="${e(a.name)}" src="/_blob/${e(a.id)}"></a>${rm?`<button class="tag r" style="position:absolute;right:0;top:0;margin:2px" onclick="A.rmAtt(${i})">✕</button>`:""}</span>`:`<span><a class="file" href="/_blob/${e(a.id)}" target="_blank" rel="noopener">📎 ${e(a.name)}</a>${rm?`<button class="tag r" onclick="A.rmAtt(${i})">✕</button>`:""}</span>`).join("")}</div>`:"";
-const attBtns=t=>assets?`<div class="chips" style="margin-top:8px"><button class="chip" onclick="A.pick('cam','${t}')">📷 Fotoğraf</button><button class="chip" onclick="A.pick('file','${t}')">📎 Dosya</button></div>`:"";
+const attHtml=(l,rm)=>(l&&l.length)?`<div class="atts">${l.map((a,i)=>/^image\//.test(a.type||"")?`<span style="position:relative"><a href="${a.d?"javascript:void 0":"/_blob/"+e(a.id)}" ${a.d?`onclick="A.imgView(this.firstChild.src)"`:`target="_blank" rel="noopener"`}><img class="thumb" loading="lazy" alt="${e(a.name)}" src="${a.d?a.d:"/_blob/"+e(a.id)}"></a>${rm?`<button class="tag r" style="position:absolute;right:0;top:0;margin:2px" onclick="A.rmAtt(${i})">✕</button>`:""}</span>`:`<span><a class="file" href="/_blob/${e(a.id)}" target="_blank" rel="noopener">📎 ${e(a.name)}</a>${rm?`<button class="tag r" onclick="A.rmAtt(${i})">✕</button>`:""}</span>`).join("")}</div>`:"";
+const attBtns=t=>assets?`<div class="chips" style="margin-top:8px"><button class="chip" onclick="A.pick('cam','${t}')">📷 Fotoğraf çek</button>${window.SA?`<button class="chip" onclick="A.pick('gal','${t}')">🖼 Galeriden seç</button>`:`<button class="chip" onclick="A.pick('file','${t}')">📎 Dosya</button>`}</div>${window.SA?`<div class="mu" style="font-size:12px;margin-top:4px">Fotoğraflar küçültülerek kaydedilir · görev başına en fazla 4</div>`:""}`:"";
+A.imgView=src=>sh(`<img src="${src}" style="width:100%;border-radius:12px"><button class="btn g f" style="margin-top:10px" onclick="A.shut()">Kapat</button>`);
 async function shrink(f){if(!/^image\/(jpeg|png|webp)$/.test(f.type)||f.size<600e3)return f;try{const b=await createImageBitmap(f),k=Math.min(1,1600/Math.max(b.width,b.height)),c=document.createElement("canvas");c.width=Math.round(b.width*k);c.height=Math.round(b.height*k);c.getContext("2d").drawImage(b,0,0,c.width,c.height);const bl=await new Promise(r=>c.toBlob(r,"image/jpeg",.82));return bl&&bl.size<f.size?new File([bl],f.name.replace(/\.\w+$/,"")+".jpg",{type:"image/jpeg"}):f}catch(_){return f}}
-A.pick=(src,target)=>{const i=document.createElement("input");i.type="file";i.accept=src==="cam"?"image/*":"image/*,application/pdf,.doc,.docx,.xls,.xlsx,.txt,.csv";if(src==="cam")i.setAttribute("capture","environment");
- i.onchange=async()=>{const f=i.files&&i.files[0];if(!f)return;toast("Yükleniyor…");try{const b=await shrink(f),r=await assets.upload(b),a={id:r.id,name:f.name,type:r.contentType||f.type};
+A.pick=(src,target)=>{const i=document.createElement("input");i.type="file";i.accept=src==="cam"||src==="gal"?"image/*":"image/*,application/pdf,.doc,.docx,.xls,.xlsx,.txt,.csv";if(src==="cam")i.setAttribute("capture","environment");
+ i.onchange=async()=>{const f=i.files&&i.files[0];if(!f)return;if(window.SA&&target.startsWith("t:")){const t0=S.t.find(x=>x.id===target.slice(2));if(t0&&(t0.att||[]).length>=4){toast("Görev başına en fazla 4 fotoğraf");return}}toast("Yükleniyor…");try{const b=window.SA?f:await shrink(f),r=await assets.upload(b),a={id:r.id,name:f.name,type:r.contentType||f.type};if(r.d)a.d=r.d;
   if(target==="pa"){PA.push(a);const el=$("att_l");if(el)el.innerHTML=attHtml(PA,true)}else if(target.startsWith("t:")){const id=target.slice(2),t=S.t.find(x=>x.id===id);await db.doc("tasks/"+id).update({att:[...(t.att||[]),a]})}
   toast("Eklendi ✓")}catch(er){toast("Yüklenemedi: "+(er&&er.message||"hata"))}};i.click()};
+A.attDel=async id=>{const x=S.t.find(t=>t.id===id);if(!x||!(x.att||[]).length)return;try{await db.doc("tasks/"+id).update({att:x.att.slice(0,-1)});toast("Kaldırıldı")}catch(_){toast("Kaldırılamadı")}};
 A.rmAtt=i=>{PA.splice(i,1);const el=$("att_l");if(el)el.innerHTML=attHtml(PA,true)};
 function watchR(){if(unsubR)unsubR();replies=[];unsubR=db.collection("questions/"+openQ+"/replies").onSnapshot(s=>{replies=s.docs.map(d=>d.data()).sort((a,b)=>a.at-b.at);render();ensure()})}
 function detail(){const x=S.q.find(q=>q.id===openQ);if(!x)return`<button class="btn g" onclick="A.back()">‹ Geri</button><div class="empty">Bu soru bulunamadı.</div>`;
@@ -514,24 +546,39 @@ A.decForm=id=>{const x=S.q.find(q=>q.id===id),l=[...(x.rs||[]),...replies].filte
 A.decSave=async id=>{const v=$("dc").value.trim();if(!v){toast("Kararı yaz");return}const x=S.q.find(q=>q.id===id);await db.doc("questions/"+id).update({dec:{text:v,by:meId,at:Date.now(),res:(x.dec&&x.dec.res)||""}});A.shut();toast("Karar kaydedildi ✓")};
 A.decDel=async id=>{await db.doc("questions/"+id).update({dec:null});A.shut();toast("Karar kaldırıldı")};
 /* ---------- görev detay ---------- */
-A.setT=async(id,st)=>{const x=S.t.find(t=>t.id===id),bl=blocked(x);if(bl&&st!=="todo"){toast("⛔ Önce “"+bl.title+"” bitmeli");return}await db.doc("tasks/"+id).update({st,dn:st==="done"?Date.now():0});if(st==="done")toast("Görev tamamlandı ✓")};
+const canMgT=x=>!!x&&(x.by===meId||isOwner||isPM(S.p.find(p=>p.id===x.p))||(x.to!==meId&&isLead(S.p.find(p=>p.id===x.p),meId)));
+A.setT=async(id,st)=>{const x=S.t.find(t=>t.id===id),bl=blocked(x);if(bl&&st!=="todo"){toast("⛔ Önce “"+bl.title+"” bitmeli");return}
+ const u={st,dn:st==="done"?Date.now():0,ack:0};if(st==="done"&&x.ext)u.ext=null;if(x.st!==st&&x.by!==meId)u.nt=[...(x.nt||[]),{sys:1,text:nm(meId)+" durumu “"+TS[st]+"” yaptı",at:Date.now()}];
+ await db.doc("tasks/"+id).update(u);if(st==="done")toast("Görev tamamlandı ✓")};
+A.ack=async id=>{try{await db.doc("tasks/"+id).update({ack:1})}catch(_){}};
+A.extReq=id=>{const x=S.t.find(t=>t.id===id);sh(`<h3>⏳ Süre uzatma iste</h3><div class="mu" style="margin:6px 0">${e(x.title)}${x.due?" · Şu anki son tarih: "+ds(x.due):""}</div><label>Yeni tarih</label><input id="ex_d" type="date" class="in" value="${e(x.due||today())}"><label>Neden? (isteğe bağlı)</label><textarea id="ex_w" class="in" rows="2" placeholder="Örn: Tedarikçiden parça gecikti"></textarea><button class="btn f" onclick="A.extSend('${id}')">İsteği gönder</button><button class="btn g f" style="margin-top:8px" onclick="A.shut()">Vazgeç</button>`)};
+A.extSend=async id=>{const d=$("ex_d").value,w=$("ex_w").value.trim(),x=S.t.find(t=>t.id===id);if(!d){toast("Tarih seç");return}
+ try{await db.doc("tasks/"+id).update({ext:{d,w,by:meId,at:Date.now()},nt:[...(x.nt||[]),{sys:1,text:nm(meId)+" süre uzatma istedi: "+ds(d)+(w?" · "+w:""),at:Date.now()}]});A.shut();toast("İstek "+nm(x.by)+" kişisine gitti ✓")}catch(_){toast("Gönderilemedi")}};
+A.extOk=async(id,ok)=>{const x=S.t.find(t=>t.id===id);if(!x||!x.ext)return;const u={ext:null,nt:[...(x.nt||[]),{sys:1,text:nm(meId)+(ok?" süre uzatmayı onayladı: "+ds(x.ext.d):" süre uzatmayı reddetti"),at:Date.now()}]};if(ok)u.due=x.ext.d;
+ try{await db.doc("tasks/"+id).update(u);toast(ok?"Yeni tarih: "+ds(x.ext.d)+" ✓":"İstek reddedildi")}catch(_){toast("Kaydedilemedi")}};
 A.tg=id=>{const t=S.t.find(x=>x.id===id);A.setT(id,t.st==="done"?"todo":"done")};
+const PRI={1:["🔴","Acil"],2:["🟠","Yüksek"],3:["",""]};const priTag=x=>x.pr&&x.pr<3?`<span class="tag ${x.pr===1?"r":"w"}">${PRI[x.pr][0]} ${PRI[x.pr][1]}</span>`:"";
+A.setPr=async(id,v)=>{await db.doc("tasks/"+id).update({pr:+v||3});toast("Öncelik güncellendi ✓")};
 function tdetail(){const x=S.t.find(t=>t.id===openT);if(!x)return`<button class="btn g" onclick="A.back()">‹ Geri</button><div class="empty">Bu görev bulunamadı.</div>`;
  const p=S.p.find(q=>q.id===x.p),mem=p?members(p):[x.to],bl=blocked(x),cl=x.cl||[],cd=cl.filter(c=>c.d).length,od=x.due&&x.due<today()&&x.st!=="done";
- let h=`<button class="btn g" onclick="A.back()">‹ Geri</button><div class="card ${od?"u2":""}" style="margin-top:10px"><b style="font-size:18px">${e(x.title)}</b><span class="mu">${e(pn(x.p))}</span>${twho(x)}${x.body?`<p style="white-space:pre-wrap;margin:10px 0 0">${e(x.body)}</p>`:""}${bl?`<div class="tag w">⛔ “${e(bl.title)}” bitmeden başlanamaz</div>`:""}${ccLine(x)}</div>`;
+ let h=`<button class="btn g" onclick="A.back()">‹ Geri</button><div class="card ${od?"u2":""}" style="margin-top:10px"><b style="font-size:18px">${e(x.title)}</b><span class="mu">${e(pn(x.p))}</span>${twho(x)}${priTag(x)}${x.body?`<p style="white-space:pre-wrap;margin:10px 0 0">${e(x.body)}</p>`:""}${bl?`<div class="tag w">⛔ “${e(bl.title)}” bitmeden başlanamaz</div>`:""}${ccLine(x)}</div>`;
  if(ccOnly(x)){h+=`<div class="card" style="background:var(--ac2);border-color:var(--ac)"><b>👁 Bu görev sana bilgi amaçlı iletildi</b><div class="mu">Durum: ${TS[x.st]||x.st}${x.due?" · Son tarih: "+ds(x.due):""}${cl.length?` · Alt işler ${cd}/${cl.length}`:""}</div>${fyiBtn("t",x)}${(x.sn||[]).includes(meId)?"":`<button class="btn g f" style="margin-top:8px" onclick="A.seen('t','${x.id}')">✓ Gördüm, listemden kaldır</button>`}</div>`;
   h+=`<h2>Notlar</h2>`+((x.nt||[]).map(n=>n.sys?`<div class="rep sys">${e(n.text)} · ${ago(n.at)}</div>`:`<div class="rep"><span class="mu">${nE(n.by)} · ${ago(n.at)}</span><div style="white-space:pre-wrap">${e(n.text)}</div></div>`).join("")||'<div class="mu">Not yok.</div>')+(attHtml(x.att)?`<h2>Dosyalar</h2>${attHtml(x.att)}`:"");return h}
  h+=fyiBtn("t",x);
  h+=`<h2>Durum</h2><div class="chips">${["todo","doing","done"].map(k=>`<button class="chip ${x.st===k?"on":""}" onclick="A.setT('${x.id}','${k}')">${TS[k]}</button>`).join("")}</div>`;
- h+=`<h2>Yapacak kişi</h2><select class="in" onchange="A.assign('${x.id}',this.value)">${mem.map(i=>`<option value="${i}" ${i===x.to?"selected":""}>${nE(i)}</option>`).join("")}</select>`;
- h+=`<h2>Son tarih</h2><input class="in" type="date" value="${e(x.due||"")}" onchange="A.due('${x.id}',this.value)">${od?`<div class="mu" style="color:var(--rd);margin-top:4px">⏰ ${-dd(x.due)} gün gecikti</div>`:""}`;
- h+=`<h2>Önce bitmesi gereken görev</h2><select class="in" onchange="A.dep('${x.id}',this.value)"><option value="">Yok</option>${S.t.filter(t=>t.p===x.p&&t.id!==x.id).map(t=>`<option value="${t.id}" ${x.dep===t.id?"selected":""}>${e(t.title)}${t.st==="done"?" ✓":""}</option>`).join("")}</select>`;
+ const mg=canMgT(x),odL=od?`<div class="mu" style="color:var(--rd);margin-top:4px">⏰ ${-dd(x.due)} gün gecikti</div>`:"";
+ if(x.ext)h+=`<div class="card" style="border-color:var(--am,#d97706);background:#fff7e6"><b>⏳ Süre uzatma isteği</b><div class="mu">${nE(x.ext.by)} yeni tarih istiyor: <b>${ds(x.ext.d)}</b>${x.ext.w?" · "+e(x.ext.w):""}</div>${mg?`<div class="row" style="margin-top:8px;gap:8px"><button class="btn" style="flex:1" onclick="A.extOk('${x.id}',1)">Onayla</button><button class="btn g" style="flex:1" onclick="A.extOk('${x.id}',0)">Reddet</button></div>`:`<div class="mu" style="margin-top:6px">Yanıt bekleniyor.</div>`}</div>`;
+ if(mg){h+=`<h2>Yapacak kişi</h2><select class="in" onchange="A.assign('${x.id}',this.value)">${mem.map(i=>`<option value="${i}" ${i===x.to?"selected":""}>${nE(i)}</option>`).join("")}</select>`;
+  h+=`<h2>Son tarih</h2><input class="in" type="date" value="${e(x.due||"")}" onchange="A.due('${x.id}',this.value)">${odL}`;
+  h+=`<h2>Öncelik</h2><select class="in" onchange="A.setPr('${x.id}',this.value)">${[[1,"🔴 Acil"],[2,"🟠 Yüksek"],[3,"Normal"]].map(([v,l])=>`<option value="${v}" ${(x.pr||3)===v?"selected":""}>${l}</option>`).join("")}</select>`;
+  h+=`<h2>Önce bitmesi gereken görev</h2><select class="in" onchange="A.dep('${x.id}',this.value)"><option value="">Yok</option>${S.t.filter(t=>t.p===x.p&&t.id!==x.id).map(t=>`<option value="${t.id}" ${x.dep===t.id?"selected":""}>${e(t.title)}${t.st==="done"?" ✓":""}</option>`).join("")}</select>`}
+ else{h+=`<h2>Son tarih</h2><div class="card" style="margin:0"><b>${x.due?ds(x.due):"Belirtilmemiş"}</b>${odL}${x.st!=="done"&&!x.ext?`<button class="btn g sm" style="margin-top:8px" onclick="A.extReq('${x.id}')">⏳ Süre uzatma iste</button>`:""}</div>`}
  h+=`<h2>Kontrol listesi ${cl.length?`(${cd}/${cl.length})`:""}</h2>${cl.length?`<div class="bar" style="margin-bottom:6px"><i style="width:${Math.round(cd*100/cl.length)}%"></i></div>`:""}`+cl.map((c,i)=>`<div class="cl ${c.d?"d":""}"><button class="ck ${c.d?"on":""}" aria-label="İşaretle" onclick="A.clTg('${x.id}',${i})">${c.d?"✓":""}</button><span>${e(c.t)}</span><button class="x" aria-label="Sil" onclick="A.clDel('${x.id}',${i})">✕</button></div>`).join("")+`<div class="row" style="margin-top:8px"><input id="cla" data-keep class="in" placeholder="Alt iş ekle…" onkeydown="if(event.key==='Enter')A.clAdd('${x.id}')"><button class="btn" onclick="A.clAdd('${x.id}')">Ekle</button></div>`;
- h+=`<h2>Dosyalar ve fotoğraflar</h2>${attHtml(x.att)||`<div class="mu">Henüz dosya yok.</div>`}${attBtns("t:"+x.id)}`;
+ h+=`<h2>Fotoğraflar${window.SA?"":" ve dosyalar"}</h2>${attHtml(x.att)||`<div class="mu">Henüz ${window.SA?"fotoğraf":"dosya"} yok.</div>`}${(x.att||[]).length&&(x.by===meId||x.to===meId)?`<button class="chip" style="margin-top:6px" onclick="A.attDel('${x.id}')">🗑 Son ekleneni kaldır</button>`:""}${attBtns("t:"+x.id)}`;
  h+=`<h2>Notlar</h2>`+(x.nt||[]).map(n=>n.sys?`<div class="rep sys">${e(n.text)} · ${ago(n.at)}</div>`:`<div class="rep ${n.by===meId?"me":""}"><span class="mu">${nE(n.by)} · ${ago(n.at)}</span><div style="white-space:pre-wrap">${e(n.text)}</div></div>`).join("")+`<textarea id="tn" data-keep rows="2" class="in" placeholder="Not yaz…"></textarea><button class="btn f" onclick="A.ntAdd('${x.id}')">Not ekle</button>`;
- h+=`<button class="btn g f dg" style="margin-top:14px" onclick="A.del('t','${x.id}')">${armed==="t"+x.id?"Emin misin? Sil":"Görevi sil"}</button>`;return h}
-A.assign=async(id,to)=>{await db.doc("tasks/"+id).update({to});toast("Kişi değişti ✓")};
-A.due=async(id,v)=>{await db.doc("tasks/"+id).update({due:v});toast("Tarih güncellendi ✓")};
+ if(canMgT(x))h+=`<button class="btn g f dg" style="margin-top:14px" onclick="A.del('t','${x.id}')">${armed==="t"+x.id?"Emin misin? Sil":"Görevi sil"}</button>`;return h}
+A.assign=async(id,to)=>{if(!canMgT(S.t.find(t=>t.id===id)))return;await db.doc("tasks/"+id).update({to});toast("Kişi değişti ✓")};
+A.due=async(id,v)=>{if(!canMgT(S.t.find(t=>t.id===id)))return;await db.doc("tasks/"+id).update({due:v});toast("Tarih güncellendi ✓")};
 A.dep=async(id,v)=>{if(v){let c=S.t.find(t=>t.id===v),n=0;while(c&&c.dep&&n++<50){if(c.dep===id){toast("Döngü oluşur: bu görev zaten buna bağlı");render();return}c=S.t.find(t=>t.id===c.dep)}}await db.doc("tasks/"+id).update({dep:v||""});toast(v?"Bağımlılık eklendi ✓":"Bağımlılık kaldırıldı")};
 A.clAdd=async id=>{const el=$("cla"),v=el.value.trim();if(!v)return;const x=S.t.find(t=>t.id===id);el.value="";await db.doc("tasks/"+id).update({cl:[...(x.cl||[]),{t:v,d:0}]})};
 A.clTg=async(id,i)=>{const x=S.t.find(t=>t.id===id),cl=(x.cl||[]).map((c,j)=>j===i?{...c,d:c.d?0:1}:c);await db.doc("tasks/"+id).update({cl})};
@@ -555,7 +602,7 @@ function people(){const pr=S.p.find(p=>p.id===F.p);let ids;
  return ids.sort((a,b)=>(sc[b]||0)-(sc[a]||0))}
 const amPMTitle=id=>{const a=MODE==="me"&&ACC[id];if(a)return /yönetici/i.test(a.title||"");return S.pAll.some(p=>pmIds(p).includes(id))};
 const pmSug=()=>{const L=Object.keys(PE).filter(i=>amPMTitle(i));return[...new Set([meId,...L])].slice(0,8)};
-function pmUI(box="pm_ui",pick="A.pmPick"){const el=$(box);if(!el)return;
+function pmUI(box="pm_ui",pick="A.pmPick"){const el=$(box);if(!el)return;const mw=$("f_mew");if(mw)mw.innerHTML=F.pm&&F.pm!==meId?`<label style="display:flex;gap:8px;align-items:center;margin-top:12px;font-weight:500"><input type="checkbox" ${F.inTeam?"checked":""} onchange="F.inTeam=this.checked" style="width:20px;height:20px"> Ben de proje ekibinde olayım</label>`:"";
  el.innerHTML=`<div class="mu" id="pm_sel" style="margin-bottom:6px">${F.pm?"Seçilen: <b>"+nE(F.pm)+(F.pm===meId?" (sen)":"")+"</b>":"Henüz seçilmedi."}</div><div class="chips">${pmSug().map(i=>`<button class="chip ${F.pm===i?"on":""}" onclick="${pick}('${i}')">${F.pm===i?"✓ ":""}${i===meId?"Ben":e(nm(i))}</button>`).join("")}</div><input class="in" id="pm_s" style="margin-top:8px" placeholder="🔍 Başka birini isimle ara…" oninput="A.pmSrch(this.value,'${pick}')"><div id="pm_r" class="chips" style="margin-top:8px"></div>`}
 A.pmPick=id=>{F.pm=id;pmUI()};
 A.pmSrch=async(q,pick)=>{if(q.trim().length<2){$("pm_r").innerHTML="";return}let rl=[];try{rl=await user.search(q)}catch(_){}const ql=q.toLocaleLowerCase("tr");
@@ -568,18 +615,18 @@ A.chPM=pid=>{const p=S.p.find(x=>x.id===pid);if(!canChPM(p))return;const cur=pmI
 A.chPMSave=async()=>{const p=S.p.find(x=>x.id===F.chp);if(!canChPM(p)||!F.pm)return toast("Yöneticiyi seç");const roles={...(p.roles||{})},mem=[...(p.mem||members(p))];
  pmIds(p).forEach(i=>{if(i!==F.pm)roles[i]="Üye"});roles[F.pm]="Proje Yöneticisi";if(!mem.includes(F.pm))mem.push(F.pm);const leads={...(p.leads||{})};delete leads[F.pm];
  try{await db.doc("projects/"+p.id).set(cleanP(p,{mem,roles,leads}));toast("Proje yöneticisi: "+nm(F.pm)+" ✓");setTimeout(()=>A.team(p.id),300)}catch(_){toast("Kaydedilemedi")}};
-A.form=(k,pre={})=>{F={to:pre.to||null,u:0,kind:"q",cc:[],more:0,p:pre.p||filt||(openP||"")||ld("lastP")||(S.p[0]&&S.p[0].id),ids:[]};PA=[];
+A.form=(k,pre={})=>{if(k==="p"&&!canNewP()){toast("Proje açma yetkin yok");return}F={to:pre.to||null,u:0,kind:"q",cc:[],more:0,p:pre.p||filt||(openP||"")||ld("lastP")||(S.p[0]&&S.p[0].id),ids:[]};PA=[];
  const AP=S.p.filter(canAct);if(k!=="p"&&!AP.length){sh(S.p.length?"Bu projelerde sadece görüntüleme yetkin var.":"Önce Projeler sekmesinden bir proje ekle.");return}if(k!=="p"&&!AP.find(x=>x.id===F.p))F.p=AP[0].id;
  const lbl={q:["Soru sor","Kime soruyorsun?","Sorun ne?","Örn: Test raporu onaylandı mı?"],t:["Görev ver","Kime veriyorsun?","Ne yapılacak?","Örn: Test raporunu hazırla"]}[k]||["Yeni proje"];
  let h=`<h3>${lbl[0]}</h3>`;
- if(k==="p"){F.pm=amPMTitle(meId)?meId:null;F.inTeam=true;h+=`<label>Proje adı</label><input class="in" id="f_n" placeholder="Örn: Ankara Ofis Projesi"><label>Proje yöneticisi</label><div id="pm_ui"></div><label style="display:flex;gap:8px;align-items:center;margin-top:12px;font-weight:500"><input type="checkbox" id="f_me" checked onchange="F.inTeam=this.checked" style="width:20px;height:20px"> Ben de proje ekibinde olayım</label>`;setTimeout(()=>pmUI(),0)}
+ if(k==="p"){F.pm=amPMTitle(meId)?meId:null;F.inTeam=true;h+=`<label>Proje adı</label><input class="in" id="f_n" placeholder="Örn: Ankara Ofis Projesi"><label>Proje yöneticisi</label><div id="pm_ui"></div><div id="f_mew"></div><label>Bitiş tarihi (isteğe bağlı)</label><input class="in" id="f_end" type="date">`;setTimeout(()=>pmUI(),0)}
  else{
   h+=`<label>Proje</label><select class="in" id="f_p" onchange="F.p=this.value;F.cc=[];F.more=0;A.pe()">${AP.map(p=>`<option value="${p.id}" ${F.p===p.id?"selected":""}>${e(p.name)}</option>`).join("")}</select>`;
   if(k==="q")h+=`<label>Hazır şablon (isteğe bağlı)</label><div class="chips">${[["Onay: ","onay"],["Bilgi: ","q"],["Ne zaman: ","q"],["Fiyat/teklif: ","q"],["Çizim/detay: ","q"]].map(([t,kd])=>`<button class="chip" onclick="A.tpl('${t}','${kd}')">${t.replace(": ","")}</button>`).join("")}</div>`;
   h+=`<label>${lbl[2]}</label><input class="in" id="f_t" value="${e(pre.title||"")}" placeholder="${lbl[3]}">
   <label>${lbl[1]}</label><div class="chips" id="f_pe"></div><input class="in" id="f_s" style="margin-top:8px" placeholder="🔍 İsimle ara…" oninput="A.srch(this.value)"><div id="f_r" class="chips" style="margin-top:8px"></div>`;
   if(k==="q")h+=`<label>Ne kadar acil?</label><div class="chips">${UR.map((t,i)=>`<button class="chip ${i===0?"on":""}" onclick="F.u=${i};this.parentNode.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));this.classList.add('on')">${["","⚡ ","🔥 "][i]}${t}<span class="mu" style="color:inherit;opacity:.7"> · ${SLAT[i]}</span></button>`).join("")}</div><label>Cevap türü</label><div class="chips" id="f_k"></div>`;
-  else h+=`<label>Son tarih (isteğe bağlı)</label><input class="in" id="f_d" type="date">`;
+  else h+=`<label>Son tarih (isteğe bağlı)</label><input class="in" id="f_d" type="date"><label>Öncelik</label><select class="in" id="f_pr"><option value="3">Normal</option><option value="2">🟠 Yüksek</option><option value="1">🔴 Acil</option></select>`;
   h+=`<label>Bilgi amaçlı</label><div class="chips" id="f_up"></div><details style="margin-top:10px"><summary><span>👥 Başka birini de bilgilendir (isteğe bağlı)</span></summary><div class="chips" id="f_cc" style="margin-top:10px"></div></details>`;
   h+=`<label>Detay (isteğe bağlı)</label><textarea class="in" id="f_b" rows="2"></textarea>${attBtns("pa")}<div id="att_l"></div>`}
  h+=`<button class="btn f" onclick="A.save('${k}')">${k==="q"?"Gönder":"Kaydet"}</button><button class="btn g f" style="margin-top:8px" onclick="A.shut()">Vazgeç</button>`;
@@ -589,7 +636,7 @@ A.pe=()=>{const el=$("f_pe");if(!el)return;const base=people();F.ids=[...new Set
  el.innerHTML=(F.more?F.ids:F.ids.slice(0,6)).map(i=>`<button class="chip ${F.to===i?"on":""}" onclick="A.pto('${i}')">${nE(i)}</button>`).join("")+(!F.more&&F.ids.length>6?`<button class="chip" onclick="F.more=1;A.pe()">＋ ${F.ids.length-6} kişi daha</button>`:"")+`<button class="chip ${F.to===meId?"on":""}" onclick="A.pto('${meId}')">Kendime</button>`;
  if(!F.ids.length&&$("f_r"))$("f_r").innerHTML='<span class="mu">Kişiyi isimle arayıp seç.</span>';
  const k=$("f_k");if(k)k.innerHTML=[["q","💬 Yazılı cevap"],["onay","✅ Onay (Evet/Hayır)"]].map(([v,l])=>`<button class="chip ${F.kind===v?"on":""}" onclick="F.kind='${v}';A.pe()">${l}</button>`).join("");
- const up=$("f_up");if(up){const b=boss(meId);up.innerHTML=b&&b!==F.to?`<button class="chip ${F.cc.includes(b)?"on":""}" onclick="A.tcc('${b}')">👆 Amirime bilgi ver · ${nE(b)}</button>`:'<span class="mu">'+(b?"Amirin zaten bu işin muhatabı.":"Şirket yapısında amirin tanımlı değil.")+'</span>'}
+ const up=$("f_up");if(up){const b=boss(meId);up.innerHTML=b&&b!==F.to?`<button class="chip ${F.cc.includes(b)?"on":""}" onclick="A.tcc('${b}')">👆 Amirime bilgi ver · ${nE(b)}</button>`:'<span class="mu">'+(b?"Amirin zaten bu işin muhatabı.":"")+'</span>'}
  const cc=$("f_cc");if(cc)cc.innerHTML=F.ids.filter(i=>i!==F.to).map(i=>`<button class="chip ${F.cc.includes(i)?"on":""}" onclick="A.tcc('${i}')">${nE(i)}</button>`).join("")||'<span class="mu">Önce kişiyi seç.</span>'};
 A.pto=i=>{F.to=i;F.cc=F.cc.filter(c=>c!==i);A.pe()};
 A.tcc=i=>{F.cc=F.cc.includes(i)?F.cc.filter(c=>c!==i):[...F.cc,i];A.pe()};
@@ -598,16 +645,87 @@ A.srch=async q=>{let rl=[];try{rl=await user.search(q)}catch(_){}const lc=Object
 A.pick2=id=>{$("f_s").value="";$("f_r").innerHTML="";F.to=id;A.pe()};
 A.save=async k=>{
  try{
- if(k==="p"){const n=$("f_n").value.trim();if(!n){toast("Proje adı yaz");return}if(!F.pm){toast("Proje yöneticisini seç");return}
+ if(k==="p"){if(!canNewP()){toast("Proje açma yetkin yok");return}const n=$("f_n").value.trim();if(!n){toast("Proje adı yaz");return}if(!F.pm){toast("Proje yöneticisini seç");return}
   const roles={[F.pm]:"Proje Yöneticisi"},mem=[F.pm];if(F.pm!==meId&&F.inTeam){roles[meId]="Üye";mem.push(meId)}
-  await db.collection("projects").add({name:n,mem,roles,leads:{},by:meId,at:Date.now()});toast("Proje eklendi ✓"+(F.pm!==meId?" · Yönetici: "+nm(F.pm):""))}
+  const pd={name:n,mem,roles,leads:{},by:meId,at:Date.now(),st:"act"},en=($("f_end")||{}).value;if(en)pd.end=en;
+  const r=await db.collection("projects").add(pd);toast("Proje eklendi ✓"+(F.pm!==meId?" · Yönetici: "+nm(F.pm):""));PA=[];A.shut();if(mem.includes(meId)||isOwner)setTimeout(()=>{A.sp(r.id)},400);return}
  else{const t=$("f_t").value.trim();if(!F.to){toast("Önce kişiyi seç");return}if(!t){toast("Bir başlık yaz");return}
   const d={p:F.p||"",title:t,body:$("f_b").value.trim(),by:meId,to:F.to,at:Date.now()};if(PA.length)d.att=PA;
   if(F.p)sv("lastP",F.p);
-  if(k==="q"){d.u=F.u;d.st="wait";d.kind=F.kind}else{d.st="todo";d.due=$("f_d").value}
+  if(k==="q"){d.u=F.u;d.st="wait";d.kind=F.kind}else{d.st="todo";d.due=$("f_d").value;const pr=+(($("f_pr")||{}).value||3);if(pr<3)d.pr=pr}
   const cc=[...new Set(F.cc)].filter(i=>i&&i!==F.to&&i!==meId);if(cc.length){d.cc=cc;d.cf={};cc.forEach(i=>{d.cf[i]=meId;d.cf[i+"_at"]=d.at})}
   await db.collection(k==="q"?"questions":"tasks").add(d);toast(k==="q"?"Soru gönderildi ✓":"Görev verildi ✓")}
  PA=[];A.shut()}catch(er){toast("Kaydedilemedi, tekrar dene")}};
+/* ---------- bildirimler ---------- */
+function evts(){if(!meId)return[];const E=[],me=meId;
+ S.t.forEach(x=>{if(x.to===me&&x.by!==me)E.push({at:x.at,ic:"✅",t:nm(x.by)+" sana görev verdi",s:x.title,o:`A.ot('${x.id}')`});
+  if(x.by===me&&x.to!==me&&x.st==="done"&&x.dn)E.push({at:x.dn,ic:"🎉",t:nm(x.to)+" görevi bitirdi",s:x.title,o:`A.ot('${x.id}')`});
+  if(x.ext&&x.ext.by!==me&&canMgT(x))E.push({at:x.ext.at,ic:"⏳",t:nm(x.ext.by)+" süre uzatma istedi",s:x.title+" → "+ds(x.ext.d),o:`A.ot('${x.id}')`});
+  (x.nt||[]).forEach(n=>{if(!n.sys&&n.by!==me&&(x.to===me||x.by===me))E.push({at:n.at,ic:"💬",t:nm(n.by)+" not ekledi",s:x.title+": "+n.text,o:`A.ot('${x.id}')`})});
+  if((x.cc||[]).includes(me))E.push({at:(x.cf||{})[me+"_at"]||x.at,ic:"👁",t:"Bilgi için iletildi",s:x.title,o:`A.ot('${x.id}')`})});
+ S.mt.forEach(x=>{if(x.by!==me&&((x.cc||[]).includes(me)||(x.pa||[]).includes(me)))E.push({at:x.at,ic:"📝",t:nm(x.by)+" toplantı notu paylaştı",s:x.title,o:`A.om('${x.id}')`})});
+ S.p.forEach(p=>{if((p.mem||[]).includes(me)&&p.by&&p.by!==me&&p.at)E.push({at:p.at,ic:"📁",t:"Projeye eklendin",s:p.name,o:`A.sp('${p.id}')`})});
+ return E.filter(x=>x.at).sort((a,b)=>b.at-a.at).slice(0,40)}
+const ntKey=()=>"nt_seen_"+MODE+"_"+meId;
+const ntSeen=()=>+(ld(ntKey())||0);
+function ntBadge(){const b=$("ntb");if(!b)return;if(!window.SA||MODE!=="me"){b.style.display="none";return}b.style.display="";const n=evts().filter(x=>x.at>ntSeen()).length;b.querySelector("span").textContent=n||"";b.querySelector("span").style.display=n?"":"none";
+ if(!ntSeen()){sv(ntKey(),Date.now());return}
+ const lastN=+(ld("nt_ntf_"+meId)||0),fresh=evts().filter(x=>x.at>Math.max(lastN,ntSeen())&&x.at>Date.now()-6e5);
+ if(fresh.length&&"Notification"in window&&Notification.permission==="granted"){sv("nt_ntf_"+meId,Date.now());const x=fresh[0],t=fresh.length>1?fresh.length+" yeni bildirim":x.t;
+  try{navigator.serviceWorker&&navigator.serviceWorker.ready.then(r=>r.showNotification("a-takip",{body:t+(fresh.length>1?"":" · "+x.s),icon:"icon-192.png",tag:"at"})).catch(()=>{try{new Notification("a-takip",{body:t})}catch(_){}})}catch(_){}}}
+A.ntOpen=()=>{const L=evts(),seen=ntSeen();sv(ntKey(),Date.now());ntBadge();
+ sh(`<h3>🔔 Bildirimler</h3>`+(L.length?`<div class="ls" style="margin-top:8px">`+L.map(x=>`<div class="it ${x.at>seen?"w":""}" onclick="A.shut();${x.o}"><span style="font-size:20px;width:26px;text-align:center">${x.ic}</span><div class="tx"><div class="t">${e(x.t)}</div><div class="m">${e(String(x.s).slice(0,90))}</div></div><div class="e">${ago(x.at)}</div></div>`).join("")+`</div>`:`<div class="empty">Henüz bildirim yok.</div>`)+`<button class="btn g f" style="margin-top:10px" onclick="A.shut()">Kapat</button>`)};
+A.notifOn=async()=>{if(!("Notification"in window)){toast("Bu cihaz bildirim desteklemiyor");return}try{const r=await Notification.requestPermission();toast(r==="granted"?"Bildirimler açıldı ✓":"Bildirim izni verilmedi");render()}catch(_){toast("Bildirim izni alınamadı")}};
+/* ---------- profil ---------- */
+const myAcc=()=>ADM.find(a=>a.id===meId)||null;
+function profile(){const a=MODE==="me"?myAcc():null,c=COMP.p&&COMP.p[meId],ro=realOwner();
+ const ttl=a?a.title:(c?(c.t||LVN[lvl(meId)]||""):""),pos=a?a.pos:(LVN[lvl(meId)]||"");
+ let h=`<div class="card" style="text-align:center;padding:20px 14px"><div style="display:inline-block;transform:scale(1.8);margin:8px 0 14px">${av(meId)}</div><div style="font-size:20px;font-weight:700">${e((a&&a.name)||PE[meId]||nm(meId))}</div><div class="mu">${e([ttl,pos].filter(Boolean).join(" · "))}</div>${a&&a.email?`<div class="mu" style="margin-top:4px">✉️ ${e(a.email)}</div>`:""}${ro&&!PV?`<span class="tag a" style="margin-top:8px">Uygulama yöneticisi</span>`:""}</div>`;
+ if(PV)h+=`<div class="mu" style="margin:0 2px 10px">👁 Önizlemedesin. Bu, ${e(nm(meId))} kişisinin profili.</div>`;
+ if(a&&!PV){h+=`<button class="btn g f" onclick="A.profEdit()">✏️ Adımı / e-postamı düzenle</button><div class="mu" style="margin:6px 2px 0;font-size:13px">Ünvan ve pozisyon yetkileri belirlediği için yalnızca uygulama yöneticisi değiştirebilir.</div>`}
+ const S1=S.t.filter(x=>x.to===meId&&x.st!=="done").length,S2=S.t.filter(x=>x.to===meId&&x.st==="done").length,S3=S.p.filter(p=>(p.mem||[]).includes(meId)).length;
+ h+=`<div class="grid" style="margin-top:12px"><div class="st"><b>${S3}</b><div class="mu">Proje</div></div><div class="st"><b>${S1}</b><div class="mu">Açık görev</div></div><div class="st"><b>${S2}</b><div class="mu">Biten görev</div></div></div>`;
+ h+=`<h2>Uygulama</h2>`;
+ if(window.SA&&MODE==="me"&&!PV)h+=`<button class="btn g f" onclick="A.invite()">✉️ Arkadaşını davet et</button>`;
+ if(window.SA&&!PV&&"Notification"in window)h+=`<button class="btn g f" style="margin-top:8px" onclick="A.notifOn()">🔔 Bildirimler: ${Notification.permission==="granted"?"Açık":Notification.permission==="denied"?"Kapalı (telefon ayarlarından aç)":"Aç"}</button>`;
+ h+=`<button class="btn g f" style="margin-top:8px" onclick="lkLock()">🔒 ${ro?"Kilitle · mod değiştir":"Kilitle"}</button>`;
+ if(window.SA&&MODE==="me"&&!PV)h+=`<button class="btn g f dg" style="margin-top:22px" onclick="A.delAcc()">${armed==="delacc"?"Emin misin? Hesabın kalıcı olarak silinir":"Hesabımı sil"}</button>`;
+ h+=`<div class="mu" style="text-align:center;margin:18px 0 4px;font-size:12px">a-takip · sürüm ${e(typeof BUILD!=="undefined"&&!BUILD.startsWith("__")?BUILD.slice(0,7):"geliştirme")}</div>`;return h}
+A.profEdit=()=>{const a=myAcc();if(!a)return;sh(`<h3>✏️ Bilgilerim</h3><label>Adın soyadın</label><input id="pf_n" class="in" value="${e(a.name||"")}"><label>E-posta adresin</label><input id="pf_m" class="in" type="email" autocapitalize="off" value="${e(a.email||"")}"><button class="btn f" onclick="A.profSave()">Kaydet</button><button class="btn g f" style="margin-top:8px" onclick="A.shut()">Vazgeç</button>`)};
+A.profSave=async()=>{const n=$("pf_n").value.trim(),m=$("pf_m").value.trim().toLocaleLowerCase("tr");if(n.split(/\s+/).length<2){toast("Adını ve soyadını yaz");return}if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)){toast("Geçerli bir e-posta yaz");return}
+ if(ADM.some(x=>x.id!==meId&&(x.email||"")===m)){toast("Bu e-posta başka bir hesapta kayıtlı");return}try{await RDB.doc("accounts/"+meId).update({name:n,email:m});A.shut();toast("Kaydedildi ✓")}catch(_){toast("Kaydedilemedi")}};
+A.invite=async()=>{const u=location.origin+location.pathname,t="a-takip'e katıl: "+u+"\nLinki aç, hesabını oluştur. Telefonda Paylaş → Ana Ekrana Ekle ile uygulama gibi kullanabilirsin.";
+ try{if(navigator.share){await navigator.share({title:"a-takip",text:t});return}}catch(er){if(er&&er.name==="AbortError")return}
+ try{await navigator.clipboard.writeText(t);toast("Davet metni kopyalandı ✓ WhatsApp veya e-postaya yapıştır")}catch(_){sh(`<h3>✉️ Davet</h3><textarea class="in" rows="4">${e(t)}</textarea><button class="btn g f" onclick="A.shut()">Kapat</button>`)}};
+/* ---------- yönetici modu ---------- */
+const POSL=["Personel","Ekip Lideri","Müdür","Direktör","Genel Müdür Yardımcısı","Genel Müdür"];
+function admin(){if(!realOwner())return`<div class="empty">Bu ekran yalnızca uygulama yöneticisine açık.</div>`;
+ if(admOpen)return admPerson(admOpen);
+ const q=admQ.toLocaleLowerCase("tr"),L=[...ADM].filter(a=>!q||(a.name||"").toLocaleLowerCase("tr").includes(q)||(a.email||"").includes(q)||(a.title||"").toLocaleLowerCase("tr").includes(q)).sort((a,b)=>(a.name||"").localeCompare(b.name||"","tr"));
+ let h=`<div class="card" style="background:var(--ac2);border-color:var(--ac)"><b>🛠 Yönetici modu</b><div class="mu">Bu ekranı yalnızca sen görürsün. Hesapların ad, ünvan, pozisyon, e-posta ve şifrelerini değiştirebilir, kişilerin gözünden bakabilirsin.</div></div>`;
+ h+=`<button class="btn g f" onclick="A.admDemo()">👁 Demo şirkette rol önizle</button>`;
+ h+=`<h2>Hesaplar (${ADM.length})</h2><input class="in" id="adm_q" data-keep placeholder="🔍 İsim, e-posta veya ünvan ara…" value="${e(admQ)}" oninput="admQ=this.value;clearTimeout(window._aq);window._aq=setTimeout(()=>{render();const i=$('adm_q');if(i){i.focus();i.setSelectionRange(i.value.length,i.value.length)}},250)">`;
+ h+=`<div class="ls" style="margin-top:8px">`+L.map(a=>`<div class="it" onclick="admOpen='${a.id}';render();scrollTo(0,0)">${av(a.id)}<div class="tx"><div class="t">${e(a.name||"(adsız)")}${a.id===(PV?PV.me:meId)&&MODE==="me"?" (sen)":""}</div><div class="m">${e([a.title,a.pos].filter(Boolean).join(" · ")||"Ünvan yok")}${a.email?" · "+e(a.email):" · e-posta yok"}</div></div><div class="e">${a.owner?"👑":"›"}</div></div>`).join("")+`</div>`;
+ if(!L.length)h+=`<div class="empty">Hesap bulunamadı.</div>`;return h}
+function admPerson(id){const a=ADM.find(x=>x.id===id);if(!a){admOpen=null;return admin()}
+ const P2=(MODE==="me"?S.pAll||S.p:[]).filter(p=>(p.mem||[]).includes(id)),T=MODE==="me"?S.t.filter(x=>x.to===id):[];
+ let h=`<button class="btn g" onclick="admOpen=null;render()">‹ Hesaplar</button><div class="card" style="margin-top:10px;text-align:center;padding:18px 14px"><div style="display:inline-block;transform:scale(1.6);margin:6px 0 12px">${av(id)}</div><div style="font-size:19px;font-weight:700">${e(a.name||"")}</div><div class="mu">${e([a.title,a.pos].filter(Boolean).join(" · "))}</div><div class="mu">${a.email?"✉️ "+e(a.email):"E-posta eklenmemiş"}</div><div class="mu" style="font-size:12px;margin-top:4px">Hesap açılışı: ${a.at?new Date(a.at).toLocaleDateString("tr-TR"):"—"}</div>${a.owner?`<span class="tag a">👑 Uygulama sahibi</span>`:""}</div>`;
+ if(MODE==="me")h+=`<div class="grid"><div class="st"><b>${P2.length}</b><div class="mu">Proje</div></div><div class="st"><b>${T.filter(x=>x.st!=="done").length}</b><div class="mu">Açık görev</div></div><div class="st"><b>${T.filter(x=>x.st!=="done"&&x.due&&x.due<today()).length}</b><div class="mu">Geciken</div></div></div>`+(P2.length?`<div class="mu" style="margin:8px 2px">📁 ${P2.map(p=>e(p.name)).join(", ")}</div>`:"");
+ h+=`<button class="btn f" style="margin-top:8px" onclick="A.admEdit('${id}')">✏️ Ad, ünvan, pozisyon, e-posta</button><button class="btn g f" style="margin-top:8px" onclick="A.admPin('${id}')">🔑 Şifresini değiştir</button>`;
+ h+=`<button class="btn g f" style="margin-top:8px" onclick="A.admView('${id}')">👁 Bu kişinin gözünden bak</button>`;
+ if(!a.owner)h+=`<button class="btn g f dg" style="margin-top:20px" onclick="A.admDel('${id}')">${armed==="ad"+id?"Emin misin? Hesap silinir (görevleri kalır)":"Hesabı sil"}</button>`;return h}
+A.admEdit=id=>{const a=ADM.find(x=>x.id===id);if(!a)return;const inT=TITLES.some(([g,L])=>L.includes(a.title));
+ sh(`<h3>✏️ ${e(a.name||"")}</h3><label>Adı soyadı</label><input id="ae_n" class="in" value="${e(a.name||"")}"><label>E-posta</label><input id="ae_m" class="in" type="email" autocapitalize="off" value="${e(a.email||"")}"><label>Ünvan</label><select id="ae_t" class="in">${inT?"":`<option selected>${e(a.title||"")}</option>`}${TITLES.map(([g,L])=>`<optgroup label="${g}">${L.map(x=>`<option ${x===a.title?"selected":""}>${x}</option>`).join("")}</optgroup>`).join("")}</select><label>Pozisyon</label><select id="ae_p" class="in">${POSL.map(x=>`<option ${x===a.pos?"selected":""}>${x}</option>`).join("")}</select><button class="btn f" onclick="A.admSave('${id}')">Kaydet</button><button class="btn g f" style="margin-top:8px" onclick="A.shut()">Vazgeç</button>`)};
+A.admSave=async id=>{if(!realOwner())return;const n=$("ae_n").value.trim(),m=$("ae_m").value.trim().toLocaleLowerCase("tr");if(!n){toast("Ad yaz");return}if(m&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)){toast("E-posta geçersiz");return}
+ if(m&&ADM.some(x=>x.id!==id&&(x.email||"")===m)){toast("Bu e-posta başka bir hesapta");return}
+ try{await RDB.doc("accounts/"+id).update({name:n,email:m,title:$("ae_t").value,pos:$("ae_p").value});A.shut();toast("Güncellendi ✓")}catch(_){toast("Kaydedilemedi")}};
+A.admPin=id=>{const a=ADM.find(x=>x.id===id);sh(`<h3>🔑 Şifre değiştir</h3><div class="mu">${e(a.name||"")} için yeni 4 haneli şifre belirle ve kendisine ilet.</div><label>Yeni şifre</label><input id="ap_1" class="in" type="password" inputmode="numeric" maxlength="4" placeholder="••••"><label>Tekrar</label><input id="ap_2" class="in" type="password" inputmode="numeric" maxlength="4" placeholder="••••"><button class="btn f" onclick="A.admPinSave('${id}')">Şifreyi değiştir</button><button class="btn g f" style="margin-top:8px" onclick="A.shut()">Vazgeç</button>`)};
+A.admPinSave=async id=>{if(!realOwner())return;const p=$("ap_1").value;if(!/^\d{4}$/.test(p)){toast("4 rakam gir");return}if(p!==$("ap_2").value){toast("Şifreler aynı değil");return}if(p==="1111"){toast("1111 demo için ayrılmış");return}
+ try{await RDB.doc("accounts/"+id).update({h:await hashWith(id,p)});A.shut();toast("Şifre değişti ✓ Kişiye yeni şifresini ilet")}catch(_){toast("Kaydedilemedi")}};
+A.admDel=async id=>{if(armed!=="ad"+id){armed="ad"+id;render();return}armed="";if(!realOwner())return;try{await RDB.doc("accounts/"+id).delete();admOpen=null;toast("Hesap silindi");render()}catch(_){toast("Silinemedi")}};
+A.admView=id=>{if(MODE!=="me"){lkOpen("me");setTimeout(()=>A.admView(id),1500);return}PVT="adm";A.pv(id);toast(nm(id)+" gözünden bakıyorsun")};
+A.admDemo=()=>{if(MODE!=="demo"){lkOpen("demo");setTimeout(()=>{PVT="adm";A.pvPick()},1800);return}PVT="adm";A.pvPick()};
+let PVT="";
 /* ---------- birim odağı ---------- */
 function focusW(){const d=DEPT(meId);if(!d||!S.p.length)return"";const[ic,nmD]=DP[d],td=today(),lim=(()=>{const x=new Date(Date.now()+30*864e5);return x.getFullYear()+"-"+String(x.getMonth()+1).padStart(2,"0")+"-"+String(x.getDate()).padStart(2,"0")})();
  const mine=S.p.filter(p=>(p.mem||[]).includes(meId)),card=(t,body)=>`<div class="card" style="border-left:4px solid var(--ac)"><b>${ic} ${t}</b>${body}</div>`;
@@ -623,19 +741,40 @@ function focusW(){const d=DEPT(meId);if(!d||!S.p.length)return"";const[ic,nmD]=D
   if(!L.length&&!wk.length)return"";return card("Teknik takvim",(wk.length?`<div class="mu" style="margin-top:6px">Bu hafta teslim etmen gereken ${wk.length} görev</div>`+wk.slice(0,2).map(x=>li(`A.ot('${x.id}')`,e(x.title),e(pn(x.p)),`<span class="tag ${x.due<td?"r":"w"}">${ds(x.due)}</span>`)).join(""):"")+(L.length?`<div class="mu" style="margin-top:8px">Yaklaşan gözden geçirme ve testler</div>`+L.slice(0,3).map(msRow).join(""):""))}
  return""}
 /* ---------- takvim ---------- */
+let calM=null,calSel=null;
+const ymd=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+A.calNav=k=>{const d=calM||new Date();calM=new Date(d.getFullYear(),d.getMonth()+k,1);calSel=null;render()};
+A.calDay=d=>{calSel=calSel===d?null:d;render()};
+function calItems(team,sc){const it=[];
+ S.t.forEach(x=>{if(!x.due)return;if(team?(sc.has(x.to)&&x.to!==meId):(x.to===meId||x.by===meId))it.push({d:x.due,k:"t",x})});
+ if(!team){S.m.forEach(x=>{if(!x.date)return;const p=S.p.find(q=>q.id===x.p);if(p)it.push({d:x.date,k:"m",x})});
+  S.mt.forEach(x=>{if(x.date&&(x.by===meId||(x.pa||[]).includes(meId)||(x.cc||[]).includes(meId)))it.push({d:x.date,k:"mt",x})})}
+ return it}
+function calGrid(it){const base=calM||new Date(),y=base.getFullYear(),mo=base.getMonth(),first=new Date(y,mo,1),off=(first.getDay()+6)%7,days=new Date(y,mo+1,0).getDate(),td=today();
+ const by={};it.forEach(i=>{(by[i.d]=by[i.d]||[]).push(i)});
+ const AY=["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+ let g=`<div class="card" style="padding:12px"><div class="row" style="justify-content:space-between;align-items:center;margin-bottom:8px"><button class="btn g sm" aria-label="Önceki ay" onclick="A.calNav(-1)">‹</button><b>${AY[mo]} ${y}</b><button class="btn g sm" aria-label="Sonraki ay" onclick="A.calNav(1)">›</button></div><div class="calg">`+["Pt","Sa","Ça","Pe","Cu","Ct","Pz"].map(x=>`<span class="cw">${x}</span>`).join("");
+ for(let i=0;i<off;i++)g+=`<span></span>`;
+ for(let dn=1;dn<=days;dn++){const d=y+"-"+String(mo+1).padStart(2,"0")+"-"+String(dn).padStart(2,"0"),L=by[d]||[],late=L.some(i=>i.k==="t"&&i.x.st!=="done"&&d<td),ms=L.some(i=>i.k==="m"),mt=L.some(i=>i.k==="mt"),tk=L.some(i=>i.k==="t");
+  g+=`<button class="cd${d===td?" td":""}${d===calSel?" sel":""}" onclick="A.calDay('${d}')">${dn}<i>${tk?`<b class="${late?"r":""}"></b>`:""}${ms?`<b class="m"></b>`:""}${mt?`<b class="t"></b>`:""}</i></button>`}
+ return g+`</div><div class="mu" style="margin-top:8px;display:flex;gap:12px;flex-wrap:wrap;font-size:12px"><span><b class="dot"></b> Görev</span><span><b class="dot m"></b> Kilometre taşı</span><span><b class="dot t"></b> Toplantı</span></div></div>`}
 function agenda(){const td=today(),D=n=>{const d=new Date(Date.now()+n*864e5);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
- const tm=D(1),dw=new Date().getDay()||7,we=D(7-dw),nwe=D(14-dw),lim=D(30),mg=isMgrL(),team=mg&&af==="team",sc=team?scope(meId):null;
+ const tm=D(1),dw=new Date().getDay()||7,we=D(7-dw),nwe=D(14-dw),lim=D(60),mg=isMgrL(),team=mg&&af==="team",sc=team?scope(meId):null;
  let h="";if(mg)h+=`<div class="tabs2"><button class="${af==="me"?"on":""}" onclick="af='me';render()">Benim</button><button class="${team?"on":""}" onclick="af='team';render()">${lvl(meId)==="el"?"Ekibim":"Birimim"}</button></div>`;
+ const ALL=calItems(team,sc);h+=calGrid(ALL);
+ const rowAny=i=>i.k==="mt"?`<div class="it" onclick="A.om('${i.x.id}')"><span style="font-size:20px;width:26px;text-align:center">📝</span><div class="tx"><div class="t">${e(i.x.title)}</div><div class="m">Toplantı${i.x.p?" · "+e(pn(i.x.p)):""}</div></div><div class="e">${ds(i.d)}</div></div>`:row(i);
  const it=[];
  S.t.forEach(x=>{if(x.st==="done"||!x.due||x.due>lim)return;
   if(team?(sc.has(x.to)&&x.to!==meId):(x.to===meId||x.by===meId))it.push({d:x.due,k:"t",x})});
- if(!team)S.m.forEach(x=>{if(x.done||!x.date||x.date>lim)return;const p=S.p.find(q=>q.id===x.p);if(p&&(p.mem||[]).includes(meId))it.push({d:x.date,k:"m",x})});
+ if(!team)S.m.forEach(x=>{if(x.done||!x.date||x.date>lim)return;const p=S.p.find(q=>q.id===x.p);if(p)it.push({d:x.date,k:"m",x})});
  it.sort((a,b)=>a.d<b.d?-1:a.d>b.d?1:0);
- const B=[["⏰ Geciken",i=>i.d<td,"r"],["Bugün",i=>i.d===td,"w"],["Yarın",i=>i.d===tm,""],["Bu hafta",i=>i.d>tm&&i.d<=we,""],["Gelecek hafta",i=>i.d>we&&i.d<=nwe,""],["Sonraki 30 gün",i=>i.d>nwe,""]];
+ const B=[["⏰ Geciken",i=>i.d<td,"r"],["Bugün",i=>i.d===td,"w"],["Yarın",i=>i.d===tm,""],["Bu hafta",i=>i.d>tm&&i.d<=we,""],["Gelecek hafta",i=>i.d>we&&i.d<=nwe,""],["Sonraki 60 gün",i=>i.d>nwe,""]];
  const row=i=>{if(i.k==="m"){const n=dd(i.d);return`<div class="it ${n<0?"r":""}" onclick="A.sp('${i.x.p}');pt='plan';render()"><span style="font-size:20px;width:26px;text-align:center">🏁</span><div class="tx"><div class="t">${e(i.x.title)}</div><div class="m">Kilometre taşı · ${e(pn(i.x.p))}</div></div><div class="e">${ds(i.d)}</div></div>`}
   const x=i.x,mine=x.to===meId,od=i.d<td;return`<div class="it ${od?"r":""}" onclick="A.ot('${x.id}')">${av(team||!mine?x.to:x.by)}<div class="tx"><div class="t">${e(x.title)}</div><div class="m">${team?nE(x.to):mine?(x.by!==meId?"Veren: "+nE(x.by):"Kendine"):"Yapacak: "+nE(x.to)}${x.p?" · "+e(pn(x.p)):""}</div></div><div class="e ${od?"r":i.d===td?"w":""}">${od?-dd(i.d)+" gün gecikti":ds(i.d)}</div></div>`};
- let any=0;B.forEach(([l,f,c])=>{const L=it.filter(f);if(!L.length)return;any=1;h+=`<h2>${l} (${L.length})</h2><div class="ls">`+L.slice(0,l==="Sonraki 30 gün"?15:40).map(row).join("")+`</div>`});
- return h+(any?"":`<div class="empty"><div class="e">📅</div>${team?"Ekibinin önümüzdeki 30 gün için tarihli işi yok.":"Önümüzdeki 30 gün için tarihli işin yok."}</div>`)}
+ if(calSel){const L=ALL.filter(i=>i.d===calSel);return h+`<h2>${ds(calSel)} (${L.length})</h2>`+(L.length?`<div class="ls">`+L.map(rowAny).join("")+`</div>`:`<div class="empty">Bu gün için kayıt yok.</div>`)}
+ h+=`<h2 style="margin-top:16px">Yaklaşanlar</h2>`;
+ let any=0;B.forEach(([l,f,c])=>{const L=it.filter(f);if(!L.length)return;any=1;h+=`<h2>${l} (${L.length})</h2><div class="ls">`+L.slice(0,l==="Sonraki 60 gün"?20:40).map(row).join("")+`</div>`});
+ return h+(any?"":`<div class="empty"><div class="e">📅</div>${team?"Ekibinin önümüzdeki 60 gün için tarihli işi yok.":"Önümüzdeki 60 gün için tarihli işin yok. Takvimde bir güne dokunarak o günü görebilirsin."}</div>`)}
 /* ---------- bilgi amaçlı (amire) ---------- */
 const ccLine=x=>(x.cc||[]).length?`<div class="mu" style="margin-top:6px">👁 Bilgi için: ${x.cc.map(i=>nE(i)+((x.cf||{})[i]&&x.cf[i]!==x.by?` <span style="opacity:.75">(${nE(x.cf[i])} iletti)</span>`:"")).join(", ")}</div>`:"";
 const fyiBtn=(k,x)=>{const b=boss(meId);if(!b||!(x.by===meId||x.to===meId||(x.cc||[]).includes(meId)||(x.pa||[]).includes(meId)))return"";
@@ -651,7 +790,7 @@ A.seen=async(k,id)=>{const x=(k==="q"?S.q:k==="m"?S.mt:S.t).find(y=>y.id===id);i
 /* ---------- toplantı notu ---------- */
 const mTasks=x=>{const ids=new Set(x.tk||[]);return S.t.filter(t=>t.mt===x.id||ids.has(t.id))};
 const mrow=x=>{const T=mTasks(x),dn=T.filter(t=>t.st==="done").length,late=T.filter(t=>t.st!=="done"&&t.due&&t.due<today()).length,nw2=(x.cc||[]).includes(meId)&&!(x.sn||[]).includes(meId)&&x.by!==meId;
- return`<div class="card ${late?"u1":""}" onclick="A.om('${x.id}')"><div class="row"><div style="flex:1;min-width:0"><b>📝 ${e(x.title)}</b><span class="mu">${ds(x.date)} · ${x.p?e(pn(x.p)):"🗂 Projeden bağımsız"}<br>${e(nw(x.by))} yazdı · ${(x.pa||[]).length} katılımcı · ${(x.cc||[]).length} kişiye dağıtıldı</span></div>${nw2?`<span class="tag a">Yeni</span>`:""}</div>${T.length?`<span class="tag ${dn===T.length?"d":""}">✅ ${dn}/${T.length} aksiyon</span>`:""}${late?`<span class="tag r">⏰ ${late} geciken</span>`:""}${x.dec?`<span class="tag">📌 Karar var</span>`:""}</div>`};
+ return`<div class="card ${late?"u1":""}" onclick="A.om('${x.id}')"><div class="row"><div style="flex:1;min-width:0"><b>📝 ${e(x.title)}</b><span class="mu">${ds(x.date)} · ${x.p?e(pn(x.p)):"🗂 Projeden bağımsız"}<br>${x.by===meId?"Sen yazdın":e(nw(x.by))+" yazdı"} · ${(x.pa||[]).length} katılımcı · ${(x.cc||[]).length} kişiye dağıtıldı</span></div>${nw2?`<span class="tag a">Yeni</span>`:""}</div>${T.length?`<span class="tag ${dn===T.length?"d":""}">✅ ${dn}/${T.length} aksiyon</span>`:""}${late?`<span class="tag r">⏰ ${late} geciken</span>`:""}${x.dec?`<span class="tag">📌 Karar var</span>`:""}</div>`};
 function mlist(){const a=S.mt.filter(x=>(!filt||x.p===filt)&&(mf==="pa"?(x.pa||[]).includes(meId):mf==="cc"?(x.cc||[]).includes(meId):mf==="by"?x.by===meId:true));
  let h=S.p.length>1?chipsP():"";
  h+=`<div class="chips scr" style="margin:4px -16px 8px">`+[["all","Hepsi"],["pa","Katıldıklarım"],["cc","Bana dağıtılan"],["by","Yazdıklarım"]].map(([k,l])=>`<button class="chip ${mf===k?"on":""}" onclick="mf='${k}';render()">${l}</button>`).join("")+`</div>`;
@@ -666,7 +805,7 @@ A.om=id=>{openM=id;openT=null;openQ=null;armed="";render();scrollTo(0,0)};
 const pchips=(L,lbl)=>`<div class="mu" style="margin-top:10px">${lbl} (${L.length})</div><div class="chips" style="margin-top:4px">${L.map(i=>`<span class="chip" style="cursor:default">${av(i)} ${nE(i)}</span>`).join("")||'<span class="mu">—</span>'}</div>`;
 function mdetail(){if(openT)return tdetail();const x=S.mt.find(m=>m.id===openM);if(!x)return`<button class="btn g" onclick="A.back()">‹ Geri</button><div class="empty">Bu toplantı notu bulunamadı.</div>`;
  const T=mTasks(x),co=ccOnly(x)&&!(x.pa||[]).includes(meId);
- let h=`<button class="btn g" onclick="A.back()">‹ Geri</button><div class="card" style="margin-top:10px"><b style="font-size:18px">📝 ${e(x.title)}</b><span class="mu">${ds(x.date)} · ${x.p?e(pn(x.p)):"🗂 Projeden bağımsız"} · ${e(nw(x.by))} yazdı</span>${pchips(x.pa||[],"👥 Katılımcılar")}${pchips(x.cc||[],"📨 Dağıtım listesi")}</div>`;
+ let h=`<button class="btn g" onclick="A.back()">‹ Geri</button><div class="card" style="margin-top:10px"><b style="font-size:18px">📝 ${e(x.title)}</b><span class="mu">${ds(x.date)} · ${x.p?e(pn(x.p)):"🗂 Projeden bağımsız"} · ${x.by===meId?"Sen yazdın":e(nw(x.by))+" yazdı"}</span>${pchips(x.pa||[],"👥 Katılımcılar")}${pchips(x.cc||[],"📨 Dağıtım listesi")}</div>`;
  if(co)h+=`<div class="card" style="background:var(--ac2);border-color:var(--ac)"><b>📨 Bu toplantı notu sana dağıtıldı</b><div class="mu">Bilgi amaçlı. Gerekirse kendi amirine iletebilirsin.</div>${fyiBtn("m",x)}${(x.sn||[]).includes(meId)?"":`<button class="btn g f" style="margin-top:8px" onclick="A.seen('m','${x.id}')">✓ Okudum, listemden kaldır</button>`}</div>`;
  else h+=fyiBtn("m",x);
  if(x.text)h+=`<h2>Toplantı notları</h2><div class="card" style="white-space:pre-wrap">${e(x.text)}</div>`;
@@ -684,7 +823,7 @@ A.meet=pid=>{const free=!pid;if(!free){const p=S.p.find(x=>x.id===pid);if(!p||!c
  <label>📨 Dağıtılacak kişiler</label><div class="mu">Toplantıya katılmayan ama notu görmesi gerekenler. Seçilenlerin “Bilgi” listesine düşer.</div><div class="chips" id="mt_up" style="margin-top:6px"></div><div class="chips" id="mt_cc"></div>
  <label>Toplantı notları</label><textarea id="mt_x" class="in" rows="4" placeholder="Konuşulanlar, durum, notlar…"></textarea>
  <label>Alınan kararlar (isteğe bağlı)</label><textarea id="mt_k" class="in" rows="2" placeholder="Her satır bir karar"></textarea>
- <label>Aksiyonlar → görev</label><div class="mu">“Ayşe: raporu hazırla” yazarsan kişi otomatik seçilir.</div><textarea id="mt_t" class="in" rows="4" placeholder="Ayşe: Test raporunu hazırla&#10;Tedarikçiyi ara"></textarea>
+ <label>Aksiyonlar → görev</label><div class="mu">“Ayşe: raporu hazırla” yazarsan kişi otomatik seçilir. Sonuna “@20.11” eklersen o satırın son tarihi olur.</div><textarea id="mt_t" class="in" rows="4" placeholder="Ayşe: Test raporunu hazırla @20.11&#10;Tedarikçiyi ara"></textarea>
  <label>Kişi yazılmayan satırlar kime?</label><div class="chips" id="mt_pe"></div>
  <label>Aksiyonların son tarihi (isteğe bağlı)</label><input id="mt_d" type="date" class="in">
  <button class="btn f" onclick="A.meetSave()">Kaydet ve dağıt</button><button class="btn g f" style="margin-top:8px" onclick="A.shut()">Vazgeç</button>`);A.meetPe()};
@@ -707,7 +846,8 @@ A.meetSave=async()=>{const ttl=$("mt_n").value.trim(),txt=$("mt_x").value.trim()
  const d={p:F.p,title:ttl,date:$("mt_dt").value||today(),by:meId,pa:F.pa,cc,text:txt,dec,at:now};if(cc.length){d.cf={};cc.forEach(i=>{d.cf[i]=meId;d.cf[i+"_at"]=now})}
  try{const r={id:"mt"+now.toString(36)+Math.random().toString(36).slice(2,6)};await db.doc("meetings/"+r.id).set(d);let n=0;
   for(const ln of lines){let to=F.to,t=ln;const i=ln.indexOf(":");if(i>0&&i<30){const who=ln.slice(0,i).trim().toLowerCase(),f=ids.find(id=>rn(id).toLowerCase().startsWith(who)||rn(id).toLowerCase().includes(who));if(f){to=f;t=ln.slice(i+1).trim()}}
-   if(!t)continue;await db.collection("tasks").add({p:F.p,title:t,body:"Toplantı: "+ttl,by:meId,to,st:"todo",due,at:now+n,mt:r.id});n++}
+   let du=due;const dm=t.match(/\s*@\s*(\d{1,2})[.\/](\d{1,2})(?:[.\/](\d{2,4}))?\s*$/);if(dm){const y=dm[3]?(dm[3].length===2?"20"+dm[3]:dm[3]):String(new Date().getFullYear());du=y+"-"+dm[2].padStart(2,"0")+"-"+dm[1].padStart(2,"0");t=t.slice(0,dm.index).trim()}
+   if(!t)continue;await db.collection("tasks").add({p:F.p,title:t,body:"Toplantı: "+ttl,by:meId,to,st:"todo",due:du,at:now+n,mt:r.id});n++}
   if(F.p)sv("lastP",F.p);A.shut();toast("Toplantı notu kaydedildi"+(n?" · "+n+" görev":"")+(cc.length?" · "+cc.length+" kişiye dağıtıldı":"")+" ✓");A.om(r.id)}catch(_){toast("Kaydedilemedi, tekrar dene")}};
 /* ---------- arama ---------- */
 A.search=()=>{sh(`<h3>🔍 Ara</h3><input id="sq" class="in" placeholder="Görev veya toplantı ara…" oninput="A.sres(this.value)" style="margin-top:10px"><div id="sr" style="margin-top:12px"><div class="mu">En az 2 harf yaz.</div></div><button class="btn g f" style="margin-top:8px" onclick="A.shut()">Kapat</button>`);setTimeout(()=>{const el=$("sq");if(el)el.focus()},50)};
@@ -762,12 +902,12 @@ A.setLead=async(pid,id,v)=>{const p=S.p.find(x=>x.id===pid);if(!p||!isPM(p))retu
 A.setMgr=async(id,v)=>{if(!isOwner&&!S.p.some(isPM))return;const mgr={...ORG.mgr};if(v)mgr[id]=v;else delete mgr[id];try{await db.doc("meta/org").set({mgr,ms:ORG.ms||[]});toast("Müdür güncellendi ✓");setTimeout(()=>F.tp&&A.team(F.tp),300)}catch(_){toast("Kaydedilemedi")}};
 const cleanP=(p,o)=>{const d={...p,...o};delete d.id;return d};
 A.rmMember=async(pid,id)=>{const p=S.p.find(x=>x.id===pid);if(!p||!canRemove(p,id))return;if(armed!=="rm"+id){armed="rm"+id;A.team(pid);return}armed="";const roles={...(p.roles||{})},leads={...(p.leads||{})};delete roles[id];delete leads[id];Object.keys(leads).forEach(k=>{if(leads[k]===id)delete leads[k]});try{await db.doc("projects/"+pid).set(cleanP(p,{mem:(p.mem||members(p)).filter(i=>i!==id),roles,leads}));toast("Ekipten çıkarıldı");setTimeout(()=>A.team(pid),300)}catch(_){toast("Kaydedilemedi")}};
-A.addMember=pid=>{const p=S.p.find(x=>x.id===pid);if(!p||!canAdd(p))return;const pm=isPM(p),opts=pm?ROLES.filter(r=>r!=="Proje Yöneticisi"):LEADS[roleOf(p,meId)]||[];F.am={pid,id:null,role:opts[0]};
+A.addMember=pid=>{const p=S.p.find(x=>x.id===pid);if(!p||!canAdd(p))return;const pm=isPM(p),opts=pm?ROLES.filter(r=>r!=="Proje Yöneticisi"):LEADS[roleOf(p,meId)]||[];F.am={pid,id:null,role:opts.includes("Üye")?"Üye":opts[0]};
  const have=new Set(members(p));const sug=Object.keys(PE).filter(i=>!have.has(i)&&i!==meId&&!(ORG.ms||[]).includes(i)).slice(0,6);
- sh(`<h3>＋ ${pm?"Üye ekle":"Ekibime üye ekle"}</h3><div class="mu" style="margin:6px 0 8px">${e(p.name)}</div><label>Kişi</label><div class="chips" id="am_pe">${sug.map(i=>`<button class="chip" onclick="A.amPick('${i}')">${e(nm(i))}</button>`).join("")}</div><input class="in" id="am_s" style="margin-top:8px" placeholder="🔍 İsimle ara…" oninput="A.amSrch(this.value)"><div id="am_r" class="chips" style="margin-top:8px"></div><div id="am_sel" class="mu" style="margin-top:8px">Kimse seçilmedi.</div><label>Rol${pm?"":" (ekibinin alt rolleri)"}</label><select id="am_role" class="in" onchange="F.am.role=this.value">${opts.map(o=>`<option>${o}</option>`).join("")}</select><button class="btn f" onclick="A.amSave()">Ekle</button><button class="btn g f" style="margin-top:8px" onclick="A.team('${pid}')">Vazgeç</button>`)};
-A.amSrch=async q=>{if(q.trim().length<2){$("am_r").innerHTML="";return}let rl=[];try{rl=await user.search(q)}catch(_){}const lc=Object.keys(PE).filter(i=>i!==meId&&PE[i].toLowerCase().includes(q.toLowerCase())).slice(0,6).map(i=>({id:i,name:PE[i]}));const r=[...lc,...rl.filter(x=>x.id!==meId)].filter((x,i,a)=>a.findIndex(z=>z.id===x.id)===i).slice(0,8);r.forEach(x=>prof[x.id]=x);$("am_r").innerHTML=r.map(x=>`<button class="chip" onclick="A.amPick('${x.id}')">${e(x.name)}</button>`).join("")+`<button class="chip" onclick="A.amNew()">＋ “${e(q.trim())}” adında yeni kişi</button>`};
+ sh(`<h3>＋ ${pm?"Üye ekle":"Ekibime üye ekle"}</h3><div class="mu" style="margin:6px 0 8px">${e(p.name)}</div><label>Kişi</label><div class="chips" id="am_pe">${sug.map(i=>`<button class="chip" data-id="${i}" onclick="A.amPick('${i}')">${e(nm(i))}</button>`).join("")}</div><input class="in" id="am_s" style="margin-top:8px" placeholder="🔍 İsimle ara…" oninput="$('am_pe').style.display=this.value.trim().length>1?'none':'';A.amSrch(this.value)"><div id="am_r" class="chips" style="margin-top:8px"></div><div id="am_sel" class="mu" style="margin-top:8px">Kimse seçilmedi.</div><label>Rol${pm?"":" (ekibinin alt rolleri)"}</label><select id="am_role" class="in" onchange="F.am.role=this.value">${opts.map(o=>`<option ${o===F.am.role?"selected":""}>${o}</option>`).join("")}</select><button class="btn f" onclick="A.amSave()">Ekle</button><button class="btn g f" style="margin-top:8px" onclick="A.team('${pid}')">Vazgeç</button>`)};
+A.amSrch=async q=>{if(q.trim().length<2){$("am_r").innerHTML="";return}let rl=[];try{rl=await user.search(q)}catch(_){}const lc=Object.keys(PE).filter(i=>i!==meId&&PE[i].toLowerCase().includes(q.toLowerCase())).slice(0,6).map(i=>({id:i,name:PE[i]}));const r=[...lc,...rl.filter(x=>x.id!==meId)].filter((x,i,a)=>a.findIndex(z=>z.id===x.id)===i).slice(0,8);r.forEach(x=>prof[x.id]=x);$("am_r").innerHTML=r.map(x=>`<button class="chip ${F.am.id===x.id?"on":""}" data-id="${x.id}" onclick="A.amPick('${x.id}')">${F.am.id===x.id?"✓ ":""}${e(x.name)}</button>`).join("")+(MODE==="me"?(r.length?"":`<span class="mu">Bulunamadı. Kişi henüz hesap açmamış olabilir.</span>`)+`<button class="chip" onclick="A.invite()">✉️ Davet linki gönder</button>`:`<button class="chip" onclick="A.amNew()">＋ “${e(q.trim())}” adında yeni kişi</button>`)};
 A.amNew=async()=>{const n=($("am_s").value||"").trim();if(n.length<2)return;const id="c_"+Date.now().toString(36);try{await db.doc("meta/people").set({map:{...PE,[id]:n}});PE[id]=n;A.amPick(id);toast(n+" kişilere eklendi")}catch(_){toast("Eklenemedi")}};
-A.amPick=id=>{F.am.id=id;$("am_sel").innerHTML="Seçilen: <b>"+nE(id)+"</b>"};
+A.amPick=id=>{F.am.id=id;$("am_sel").innerHTML="Seçilen: <b>"+nE(id)+"</b>";document.querySelectorAll("#am_pe .chip,#am_r .chip[data-id]").forEach(b=>{const on=(b.dataset.id||"")===id;b.classList.toggle("on",on)})};
 A.amSave=async()=>{const a=F.am,p=S.p.find(x=>x.id===a.pid);if(!a||!p||!canAdd(p))return;if(!a.id){toast("Önce kişiyi seç");return}const have=p.mem||members(p);if(have.includes(a.id)){toast("Bu kişi zaten ekipte");return}
  const roles={...(p.roles||{}),[a.id]:a.role},leads={...(p.leads||{})};
  if(isPM(p)){const l=members(p).find(i=>isLead(p,i)&&(LEADS[roleOf(p,i)]||[]).includes(a.role));if(l)leads[a.id]=l}else leads[a.id]=meId;
