@@ -544,11 +544,26 @@ function people(){const pr=S.p.find(p=>p.id===F.p);let ids;
  if(pr&&pr.mem&&pr.mem.length)ids=pr.mem.filter(i=>i!==meId);else{const m={};[...S.q,...S.t].forEach(x=>{[x.by,x.to].forEach(i=>{if(i&&i!==meId)m[i]=1})});ids=Object.keys(m).slice(0,30)}
  const sc={};[...S.q,...S.t].forEach(x=>{if(x.by===meId||x.to===meId){const o=x.by===meId?x.to:x.by;sc[o]=(sc[o]||0)+1}});
  return ids.sort((a,b)=>(sc[b]||0)-(sc[a]||0))}
+const amPMTitle=id=>{const a=MODE==="me"&&ACC[id];if(a)return /yönetici/i.test(a.title||"");return S.pAll.some(p=>pmIds(p).includes(id))};
+const pmSug=()=>{const L=Object.keys(PE).filter(i=>amPMTitle(i));return[...new Set([meId,...L])].slice(0,8)};
+function pmUI(box="pm_ui",pick="A.pmPick"){const el=$(box);if(!el)return;
+ el.innerHTML=`<div class="mu" id="pm_sel" style="margin-bottom:6px">${F.pm?"Seçilen: <b>"+nE(F.pm)+(F.pm===meId?" (sen)":"")+"</b>":"Henüz seçilmedi."}</div><div class="chips">${pmSug().map(i=>`<button class="chip ${F.pm===i?"on":""}" onclick="${pick}('${i}')">${F.pm===i?"✓ ":""}${i===meId?"Ben":e(nm(i))}</button>`).join("")}</div><input class="in" id="pm_s" style="margin-top:8px" placeholder="🔍 Başka birini isimle ara…" oninput="A.pmSrch(this.value,'${pick}')"><div id="pm_r" class="chips" style="margin-top:8px"></div>`}
+A.pmPick=id=>{F.pm=id;pmUI()};
+A.pmSrch=async(q,pick)=>{if(q.trim().length<2){$("pm_r").innerHTML="";return}let rl=[];try{rl=await user.search(q)}catch(_){}const ql=q.toLocaleLowerCase("tr");
+ const lc=Object.keys(PE).filter(i=>(PE[i]||"").toLocaleLowerCase("tr").includes(ql)).slice(0,8).map(i=>({id:i,name:PE[i]}));
+ const r=[...lc,...rl].filter((x,i,a)=>a.findIndex(z=>z.id===x.id)===i).slice(0,8);r.forEach(x=>prof[x.id]=prof[x.id]||x);
+ $("pm_r").innerHTML=r.map(x=>`<button class="chip" onclick="${pick}('${x.id}')">${e(x.name)}</button>`).join("")||'<span class="mu">Bulunamadı</span>'};
+const canChPM=p=>!!p&&(isOwner||isPM(p)||p.by===meId);
+A.chPM=pid=>{const p=S.p.find(x=>x.id===pid);if(!canChPM(p))return;const cur=pmIds(p);F.pm=cur[0]||null;F.chp=pid;
+ sh(`<h3>Proje yöneticisini değiştir</h3><div class="mu" style="margin:6px 0 8px">${e(p.name)}${cur.length?" · Şu an: <b>"+cur.map(nE).join(", ")+"</b>":""}</div><div id="pm_ui"></div><div class="mu" style="margin-top:10px">Eski yönetici ekipte “Üye” olarak kalır.</div><button class="btn f" onclick="A.chPMSave()">Kaydet</button><button class="btn g f" style="margin-top:8px" onclick="A.team('${pid}')">Vazgeç</button>`);pmUI()};
+A.chPMSave=async()=>{const p=S.p.find(x=>x.id===F.chp);if(!canChPM(p)||!F.pm)return toast("Yöneticiyi seç");const roles={...(p.roles||{})},mem=[...(p.mem||members(p))];
+ pmIds(p).forEach(i=>{if(i!==F.pm)roles[i]="Üye"});roles[F.pm]="Proje Yöneticisi";if(!mem.includes(F.pm))mem.push(F.pm);const leads={...(p.leads||{})};delete leads[F.pm];
+ try{await db.doc("projects/"+p.id).set(cleanP(p,{mem,roles,leads}));toast("Proje yöneticisi: "+nm(F.pm)+" ✓");setTimeout(()=>A.team(p.id),300)}catch(_){toast("Kaydedilemedi")}};
 A.form=(k,pre={})=>{F={to:pre.to||null,u:0,kind:"q",cc:[],more:0,p:pre.p||filt||(openP||"")||ld("lastP")||(S.p[0]&&S.p[0].id),ids:[]};PA=[];
  const AP=S.p.filter(canAct);if(k!=="p"&&!AP.length){sh(S.p.length?"Bu projelerde sadece görüntüleme yetkin var.":"Önce Projeler sekmesinden bir proje ekle.");return}if(k!=="p"&&!AP.find(x=>x.id===F.p))F.p=AP[0].id;
  const lbl={q:["Soru sor","Kime soruyorsun?","Sorun ne?","Örn: Test raporu onaylandı mı?"],t:["Görev ver","Kime veriyorsun?","Ne yapılacak?","Örn: Test raporunu hazırla"]}[k]||["Yeni proje"];
  let h=`<h3>${lbl[0]}</h3>`;
- if(k==="p")h+=`<label>Proje adı</label><input class="in" id="f_n" placeholder="Örn: Ankara Ofis Projesi">`;
+ if(k==="p"){F.pm=amPMTitle(meId)?meId:null;F.inTeam=true;h+=`<label>Proje adı</label><input class="in" id="f_n" placeholder="Örn: Ankara Ofis Projesi"><label>Proje yöneticisi</label><div id="pm_ui"></div><label style="display:flex;gap:8px;align-items:center;margin-top:12px;font-weight:500"><input type="checkbox" id="f_me" checked onchange="F.inTeam=this.checked" style="width:20px;height:20px"> Ben de proje ekibinde olayım</label>`;setTimeout(()=>pmUI(),0)}
  else{
   h+=`<label>Proje</label><select class="in" id="f_p" onchange="F.p=this.value;F.cc=[];F.more=0;A.pe()">${AP.map(p=>`<option value="${p.id}" ${F.p===p.id?"selected":""}>${e(p.name)}</option>`).join("")}</select>`;
   if(k==="q")h+=`<label>Hazır şablon (isteğe bağlı)</label><div class="chips">${[["Onay: ","onay"],["Bilgi: ","q"],["Ne zaman: ","q"],["Fiyat/teklif: ","q"],["Çizim/detay: ","q"]].map(([t,kd])=>`<button class="chip" onclick="A.tpl('${t}','${kd}')">${t.replace(": ","")}</button>`).join("")}</div>`;
@@ -574,7 +589,9 @@ A.srch=async q=>{let rl=[];try{rl=await user.search(q)}catch(_){}const lc=Object
 A.pick2=id=>{$("f_s").value="";$("f_r").innerHTML="";F.to=id;A.pe()};
 A.save=async k=>{
  try{
- if(k==="p"){const n=$("f_n").value.trim();if(!n){toast("Proje adı yaz");return}await db.collection("projects").add({name:n,mem:[meId],roles:{[meId]:"Proje Yöneticisi"},leads:{},at:Date.now()});toast("Proje eklendi ✓")}
+ if(k==="p"){const n=$("f_n").value.trim();if(!n){toast("Proje adı yaz");return}if(!F.pm){toast("Proje yöneticisini seç");return}
+  const roles={[F.pm]:"Proje Yöneticisi"},mem=[F.pm];if(F.pm!==meId&&F.inTeam){roles[meId]="Üye";mem.push(meId)}
+  await db.collection("projects").add({name:n,mem,roles,leads:{},by:meId,at:Date.now()});toast("Proje eklendi ✓"+(F.pm!==meId?" · Yönetici: "+nm(F.pm):""))}
  else{const t=$("f_t").value.trim();if(!F.to){toast("Önce kişiyi seç");return}if(!t){toast("Bir başlık yaz");return}
   const d={p:F.p||"",title:t,body:$("f_b").value.trim(),by:meId,to:F.to,at:Date.now()};if(PA.length)d.att=PA;
   if(F.p)sv("lastP",F.p);
@@ -725,7 +742,7 @@ A.team=pid=>{const p=S.p.find(x=>x.id===pid);if(!p)return;F.tp=pid;const pm=isPM
  const row=(id,ind)=>{const r=roleOf(p,id);return`<div class="card" style="margin-left:${ind?18:0}px"><div class="row">${av(id)}<div style="flex:1;min-width:0"><b>${e(nE(id))}${id===meId?" (sen)":""}</b><span class="mu">${e(r)}${L[id]&&!ind?" · lider: "+e(nE(L[id])):""}</span>${pm?`<details style="margin-top:6px"><summary><span class="mu">Düzenle</span></summary><label style="margin:8px 0 4px">Rol</label><select class="in" ${r==="Proje Yöneticisi"&&onlyPM?"disabled":""} onchange="A.setRole('${pid}','${id}',this.value)">${ROLES.map(o=>`<option ${o===r?"selected":""}>${o}</option>`).join("")}</select><label style="margin:8px 0 4px">Ekip lideri</label><select class="in" onchange="A.setLead('${pid}','${id}',this.value)"><option value="">—</option>${ls.filter(l=>l!==id).map(l=>`<option value="${l}" ${L[id]===l?"selected":""}>${e(nm(l))} (${e(roleOf(p,l))})</option>`).join("")}</select></details>`:""}</div>${r==="Proje Yöneticisi"?`<span class="tag a">Yönetici</span>`:isLead(p,id)?`<span class="tag a">Lider</span>`:""}${canRemove(p,id)?`<button class="tag ${armed==="rm"+id?"r":""}" onclick="A.rmMember('${pid}','${id}')">${armed==="rm"+id?"Emin misin? Çıkar":"Çıkar"}</button>`:""}</div></div>`};
  let h=`<h3>👥 Proje ekibi</h3><div class="mu" style="margin:6px 0 10px">${ids.length} kişi${pm?" · Rolleri sen değiştirebilirsin":isLead(p,meId)?" · Kendi ekibine üye ekleyebilirsin":" · Rolleri proje yöneticisi belirler"}</div>`;
  if(canAdd(p))h+=`<button class="btn sm" style="margin-bottom:10px" onclick="A.addMember('${pid}')">＋ ${pm?"Üye ekle":"Ekibime üye ekle"}</button>`;
- if(pms.length)h+=`<h2>Proje yönetimi</h2>`+pms.map(i=>row(i,0)).join("");
+ if(pms.length||canChPM(p))h+=`<h2>Proje yönetimi</h2>`+pms.map(i=>row(i,0)).join("")+(canChPM(p)?`<button class="btn g sm" style="margin:2px 0 8px" onclick="A.chPM('${pid}')">🔁 Proje yöneticisini değiştir</button>`:"");
  ls.forEach(l=>{const sb=subs(l);h+=`<h2>${e(nE(l))} · ${e(roleOf(p,l))} ekibi (${sb.length})</h2>`+row(l,0)+sb.map(i=>row(i,1)).join("")});
  if(rest.length)h+=`<h2>Diğer ekip üyeleri</h2>`+rest.map(i=>row(i,0)).join("");
  const mg=[...new Set(ids.flatMap(i=>[...anc(i),ORG.mgr[i]]).filter(a=>a&&["mud","dir"].includes(lvl(a))&&!ids.includes(a)))];
